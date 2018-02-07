@@ -1,15 +1,20 @@
-<aside id="leftsidebar" class="sidebar">
-  
+<aside id="leftsidebar" class="sidebar m-sidenav">
+
     <!-- Menu -->
     <div class="menu">
         <ul class="list">
             <li class="active">
-                <a href="/">
+                <!-- <a href="/">
                     <i class="material-icons">home</i>
                     <span>Home</span>
+                </a> -->
+            </li>
+            <li ng-repeat="item in vm.image.objects">
+                <a href="">
+                    <i class="material-icons">arrow_forward</i>
+                    <span class="text-capitalize"> {{item.names[0]}}</span>
                 </a>
             </li>
-            
         </ul>
     </div>
     <!-- #Menu -->

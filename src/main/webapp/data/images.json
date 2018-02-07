@@ -1,6 +1,6 @@
 [{
     "image_id": 1,
-    "image_rl": "https://cs.stanford.ed/people/rak248/VG_100K_2/1.jpg",
+    "image_rl": "https://cs.stanford.edu/people/rak248/VG_100K_2/1.jpg",
     "objects": [{
             "h": 557,
             "merged_object_ids": [],

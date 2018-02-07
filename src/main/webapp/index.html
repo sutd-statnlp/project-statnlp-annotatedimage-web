@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta name="theme-color" content="#000000">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css content/css/vendor.css -->
     <!-- bower:css -->
@@ -53,6 +54,9 @@
     <!-- noUISlider Css -->
     <link href="plugins/nouislider/nouislider.min.css" rel="stylesheet" />
 
+    <!-- Light Gallery Plugin Css -->
+    <link href="plugins/light-gallery/css/lightgallery.css" rel="stylesheet">
+
     <!-- Custom Css -->
     <link href="css/style.css" rel="stylesheet">
 
@@ -81,7 +85,7 @@
         </div>
     </section>
 
-    <section class="content">
+    <section class="content m-content">
         <div ui-view="content">
             <!-- Angular views -->
         </div>
@@ -128,6 +132,10 @@
      <!-- Waves Effect Plugin Js -->
      <script src="plugins/node-waves/waves.js"></script>
 
+      <!-- Light Gallery Plugin Js -->
+    <script src="plugins/light-gallery/js/lightgallery-all.js"></script>
+
+
     <!-- Custom Js -->
     <!-- <script src="js/admin.js"></script>
      <script src="js/pages/index.js"></script> -->
@@ -152,6 +160,10 @@
     <!-- build:js app/app.js  -->
     <!-- inject:js -->
     <script src="app/app.module.js"></script>
+    <script src="app/service/region.service.js"></script>
+    <script src="app/service/image.service.js"></script>
+    <script src="app/service/data.service.js"></script>
+    <script src="app/service/annotation.service.js"></script>
     <script src="app/layouts/sidenav/sidenav.controller.js"></script>
     <script src="app/layouts/pageload/pageload.controller.js"></script>
     <script src="app/layouts/navbar/navbar.controller.js"></script>
@@ -169,6 +181,7 @@
     <script src="app/components/util/base64.service.js"></script>
     <script src="app/blocks/handlers/state.handler.js"></script>
     <script src="app/blocks/config/http.config.js"></script>
+    <script src="app/blocks/config/html5.mode.config.js"></script>
     <script src="app/blocks/config/compile.config.js"></script>
     <script src="app/app.state.js"></script>
     <script src="app/app.constants.js"></script>

@@ -1,2 +1,14 @@
 .m-navbar ul {
   list-style-type: none; }
+
+.m-navbar .m-item-active {
+  background-color: #B3E5FC; }
+
+.m-sidenav {
+  width: 290px; }
+
+.justify-content-center {
+  text-align: center;
+  -webkit-box-pack: center !important;
+  -ms-flex-pack: center !important;
+  justify-content: center !important; }

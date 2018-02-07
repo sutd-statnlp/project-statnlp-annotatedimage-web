@@ -7,42 +7,38 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-              
+
                 <!-- Tasks -->
                 <li class="dropdown">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                        <i class="material-icons">flag</i>
-                        <span class="label-count">2</span>
+                        <i class="material-icons">collections</i>
+                        <span class="label-count">{{ vm.images.length}}</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="header">OBJECTS</li>
+                        <li class="header">Images</li>
                         <li class="body">
-                            <ul class="menu tasks">
-                                <li>
+                            <ul class="menu">
+                                <li class="m-menu-item" ng-click="vm.imageClick($event)" ng-repeat="item in vm.images">
                                     <a href="javascript:void(0);">
-                                        <h4>
-                                            arm
-                                            <small>x0-y0-w799-h557</small>
-                                        </h4>
-                                      
+                                        <div class="icon-circle">
+                                            <img class="img-circle" ng-src="{{item.image_rl}}" width="40" height="40">
+                                        </div>
+                                        <div class="menu-info p-l-5">
+                                            <h4>Image {{item.image_id}}</h4>
+                                            <p>
+                                                    <i class="material-icons">view_comfy</i> {{item.objects.length}} objects
+                                            </p>
+                                        </div>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="javascript:void(0);">
-                                        <h4>
-                                            bike
-                                            <small>x78-y308-w722-h290</small>
-                                        </h4>
-                                      
-                                    </a>
-                                </li>
+
                             </ul>
                         </li>
-                        
+
                     </ul>
                 </li>
                 <!-- #END# Tasks -->
-              
+
             </ul>
         </div>
     </div>
