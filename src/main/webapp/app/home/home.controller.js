@@ -15,7 +15,16 @@
         $ocLazyLoad.load('js/pages/medias/image-gallery.js');
 
         var vm = this;
-        vm.regions = [];
+        vm.region = {
+            "height": 57,
+            "image_id": 1,
+            "phrase": "man has raised his arm",
+            "region_id": 1736,
+            "width": 67,
+            "x": 372,
+            "y": 274,
+            "annotation": {}
+        };
         vm.annotations = [];
 
         vm.image = {
@@ -39,13 +48,14 @@
         }
 
         function loadRegions() {
-            RegionService.getAll({}, onSuccess, onError);
+            // RegionService.getAll({}, onSuccess, onError);
 
-            function onSuccess(data) {
-                vm.regions = data[0].regions;
-                injectAnnotationToRegion(vm.regions);
-            }
-            
+            // function onSuccess(data) {
+            //     vm.region = data[0].regions[0];
+            //     injectAnnotationToRegion(vm.region);
+            // }
+
+
         }
 
         function loadAnnotations() {
@@ -53,17 +63,25 @@
 
             function onSuccess(data) {
                 vm.annotations = data[0].relationships;
+                injectAnnotationToRegion(vm.region);
             }
         }
 
-        function injectAnnotationToRegion(regions) {
-            for (var i = 0; i < regions.length; i++) {
-                var item = regions[i];
-                var annotation = getAnnotationByRegionId(item.region_id);
-                if(annotation !== null)
-                    item['annotation'] = annotation;
+        function injectAnnotationToRegion(item) {
+            var annotation = getAnnotationByRegionId(item.region_id);
+            if (annotation !== null) {
+                loadRegionFromAnnotation(item, annotation);
             }
         }
+
+        function loadRegionFromAnnotation(item, annotation) {
+            item['annotation']['predicate'] = annotation['predicate'];
+            for (var key in annotation) {
+                if (key !== 'predicate')
+                    item['annotation'][key] = annotation[key];
+            }
+        }
+
 
         function getAnnotationByRegionId(id) {
             for (var i = 0; i < vm.annotations.length; i++) {

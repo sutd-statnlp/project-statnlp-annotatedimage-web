@@ -1,5 +1,9 @@
 <aside id="leftsidebar" class="sidebar m-sidenav">
-
+    <div class="legal">
+       <p>Definition of verb</p>
+       <p>Definition of roles</p>
+       <p>Example</p>
+    </div>
     <!-- Menu -->
     <div class="menu">
         <ul class="list">
@@ -9,11 +13,20 @@
                     <span>Home</span>
                 </a> -->
             </li>
-            <li ng-repeat="item in vm.image.objects">
-                <a href="">
-                    <i class="material-icons">arrow_forward</i>
-                    <span class="text-capitalize"> {{item.names[0]}}</span>
-                </a>
+            <li>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 p-t-20">
+                    <button type="button" class="btn bg-blue btn-block btn-lg waves-effect">Next role (Shift + &#x2192;)</button>
+                </div>
+            </li>
+            <li>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 p-t-20">
+                    <button type="button" class="btn bg-blue btn-block btn-lg waves-effect">Previous role (Shift + &#x2190;)</button>
+                </div>
+            </li>
+            <li>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 p-t-20">
+                    <button type="button" class="btn bg-blue btn-block btn-lg waves-effect">Ambiguous (Ctrl + B)</button>
+                </div>
             </li>
         </ul>
     </div>

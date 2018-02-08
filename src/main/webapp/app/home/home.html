@@ -1,48 +1,47 @@
 <div class="container-fluid">
-
+    <!-- Advanced Select -->
     <div class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <div class="card">
-
+                    <div class="header">
+                            <h2>
+                                REGION IMAGE
+                            </h2>
+                        </div>
                 <div class="body">
                     <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <a href="{{vm.image.image_rl}}" data-sub-html="Image {{vm.image.image_id}}">
-                                <img class="img-responsive" width="100%" ng-src="{{vm.image.image_rl}}">
+                            <a href="{{'./data/images/' + vm.region.region_id + '.jpg'}}" data-sub-html="Region {{vm.region.region_id}}">
+                                <img class="img-responsive" width="{{vm.region.width}}" height="{{vm.region.height}}" ng-src="{{'./data/images/' + vm.region.region_id + '.jpg'}}">
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Advanced Select -->
-    <div class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
             <div class="card">
                 <div class="header">
                     <h2>
-                        ANNOATIONS & REGIONS
-                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 pull-right">
-                            <button type="button" class="btn bg-blue btn-block waves-effect">SAVE</button>
+                        ANNOTAIONS & REGIONS
+                        <div class="pull-right">
+                            <button type="button" class="btn bg-blue waves-effect">SAVE</button>
                         </div>
                     </h2>
                 </div>
-                <div class="body">
+                <div class="body m-region">
                     <div class="row clearfix">
-                        <div ng-repeat="item in vm.regions" ng-show="item.annotation" class="col-md-12">
+                        <div class="col-md-12">
                             <p class="col-blue">
-                                <b>{{item.phrase}}</b>
+                                <b>{{vm.region.phrase}}</b>
                             </p>
-                            <div ng-repeat="(key,value) in item.annotation" class="col-md-3">
+                            <div ng-repeat="(key,value) in vm.region.annotation" class="col-md-4">
                                 <p>
                                     <b>{{key}}</b>
                                 </p>
-                                <select class="form-control show-tick">
-                                    <optgroup label="Objects">
-                                        <option ng-repeat="object in vm.image.objects" ng-selected="{{object.object_id == value}}">{{object.names[0]}}</option>
-                                    </optgroup>
+                                <select class="form-control" data-live-search="true">
+                                    <option disabled selected value>NONE</option>
+                                    <option ng-repeat="object in vm.image.objects" ng-selected="{{object.object_id == value}}">{{object.names[0]}}</option>
                                 </select>
                             </div>
                         </div>
@@ -76,7 +75,7 @@
         </div>
     </div> -->
 
-    <div class="row clearfix">
+    <!-- <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
@@ -101,6 +100,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 </div>

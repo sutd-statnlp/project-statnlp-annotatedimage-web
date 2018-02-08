@@ -25,6 +25,11 @@
                     templateUrl: 'app/layouts/sidenav/sidenav.html',
                     controller: 'SidenavController',
                     controllerAs: 'vm'
+                },
+                'sidenav-right': {
+                    templateUrl: 'app/layouts/sidenav-right/sidenav-right.html',
+                    controller: 'SidenavRightController',
+                    controllerAs: 'vm'
                 }
             }
         });
