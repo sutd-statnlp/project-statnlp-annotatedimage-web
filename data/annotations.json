@@ -1,0 +1,307 @@
+[{
+    "image_id": 1,
+    "relationships": [{
+            "region_id": 1736,
+            "region_relations": {
+                "agent": 3798576,
+                "ext": "",
+                "getter of money": "",
+                "giver of money": "",
+                "logical sbject": 1058546,
+                "manner": "",
+                "money": "",
+                "place": "",
+                "predicate": "raise"
+            }
+        },
+        {
+            "region_id": 1635,
+            "region_relations": {
+                "agent": "",
+                "ext": "",
+                "getter of money": "",
+                "giver of money": "",
+                "logical sbject": 1058541,
+                "manner": "",
+                "money": "",
+                "place": "",
+                "predicate": "raise"
+            }
+        },
+        {
+            "region_id": 1536,
+            "region_relations": {
+                "adverbial modification": "",
+                "entity parked": 1058515,
+                "manner": "",
+                "parker": "",
+                "parking place": "on 1058539",
+                "place": "",
+                "predicate": "park"
+            }
+        },
+        {
+            "region_id": 3983,
+            "region_relations": {
+                "adverbial modification": "",
+                "amont increased by": "",
+                "bilder": "",
+                "constrction": "on 1058534",
+                "grop": "",
+                "manner": "",
+                "material": "",
+                "place": "",
+                "place grown": "",
+                "predicate": "bild",
+                "proper non component": "",
+                "theme": "",
+                "time": ""
+            }
+        },
+        {
+            "region_id": 2285,
+            "region_relations": {
+                "adverbial modification": "",
+                "agent": "",
+                "art": 1058498,
+                "artist": "",
+                "benefactive": "",
+                "explicit mention of paint": "",
+                "manner": "",
+                "place": "",
+                "predicate": "paint",
+                "srface": "",
+                "time": ""
+            }
+        },
+        {
+            "region_id": 1885,
+            "region_relations": {
+                "manner": "",
+                "place": "",
+                "predicate": "see",
+                "thing viewed": 1058549,
+                "time": "",
+                "viewer": ""
+            }
+        },
+        {
+            "region_id": 3282,
+            "region_relations": {
+                "caser of redction": "",
+                "ext": "",
+                "logical sbject": 1058519,
+                "manner": "",
+                "place": "",
+                "predicate": "crb"
+            }
+        },
+        {
+            "region_id": 1533,
+            "region_relations": {
+                "adverbial modification": "",
+                "clothing": 1058530,
+                "manner": "",
+                "place": "",
+                "predicate": "wear",
+                "thing disappearing": "",
+                "thing worn ot": "",
+                "time": "",
+                "wearer": 3798576
+            }
+        },
+        {
+            "region_id": 1682,
+            "region_relations": {
+                "adverbial modification": "",
+                "clothing": 1058511,
+                "manner": "",
+                "place": "",
+                "predicate": "wear",
+                "thing disappearing": "",
+                "thing worn ot": "",
+                "time": "",
+                "wearer": 3798577
+            }
+        },
+        {
+            "region_id": 1732,
+            "region_relations": {
+                "adverbial modification": "",
+                "clothing": 1058525,
+                "manner": "",
+                "place": "",
+                "predicate": "wear",
+                "thing disappearing": "",
+                "thing worn ot": "",
+                "time": "",
+                "wearer": 3798576
+            }
+        },
+        {
+            "region_id": 1783,
+            "region_relations": {
+                "adverbial modification": "",
+                "clothing": 1058547,
+                "manner": "",
+                "place": "",
+                "predicate": "wear",
+                "thing disappearing": "",
+                "thing worn ot": "",
+                "time": "",
+                "wearer": 3798576
+            }
+        },
+        {
+            "region_id": 1882,
+            "region_relations": {
+                "adverbial modification": "",
+                "clothing": 1058549,
+                "manner": "",
+                "place": "",
+                "predicate": "wear",
+                "thing disappearing": "",
+                "thing worn ot": "",
+                "time": "",
+                "wearer": 3798577
+            }
+        },
+        {
+            "region_id": 1884,
+            "region_relations": {
+                "adverbial modification": "",
+                "clothing": 1058531,
+                "manner": "",
+                "place": "",
+                "predicate": "wear",
+                "thing disappearing": "",
+                "thing worn ot": "",
+                "time": "",
+                "wearer": 3798576
+            }
+        },
+        {
+            "region_id": 2385,
+            "region_relations": {
+                "adverbial modification": "",
+                "clothing": 1058528,
+                "manner": "",
+                "place": "",
+                "predicate": "wear",
+                "thing disappearing": "",
+                "thing worn ot": "",
+                "time": "",
+                "wearer": 3798577
+            }
+        },
+        {
+            "region_id": 3082,
+            "region_relations": {
+                "adverbial modification": "",
+                "clothing": 1058518,
+                "manner": "",
+                "place": "",
+                "predicate": "wear",
+                "thing disappearing": "",
+                "thing worn ot": "",
+                "time": "",
+                "wearer": 3798576
+            }
+        },
+        {
+            "region_id": 3182,
+            "region_relations": {
+                "action": "",
+                "adverbial modification": "",
+                "caser": "",
+                "manner": "",
+                "owner": 3798577,
+                "place": "",
+                "possession": 1058511,
+                "predicate": "have",
+                "time": ""
+            }
+        },
+        {
+            "region_id": 1934,
+            "region_relations": {
+                "agent only!": "",
+                "casative agent": 1058549,
+                "instrment": "",
+                "manner": "",
+                "place": "",
+                "predicate": "line",
+                "proper non component": "",
+                "thing lined": "",
+                "things in a line": 1058539
+            }
+        },
+        {
+            "region_id": 1982,
+            "region_relations": {
+                "agent only!": "",
+                "casative agent": 1058549,
+                "instrment": "",
+                "manner": "",
+                "place": "",
+                "predicate": "line",
+                "proper non component": "",
+                "thing lined": "",
+                "things in a line": 1058534
+            }
+        },
+        {
+            "region_id": 1683,
+            "region_relations": {
+                "adverbial modification": "",
+                "attribte of arg1": "",
+                "benefactive": "",
+                "condctor": "",
+                "extent": "",
+                "holder": 3798576,
+                "holder / thinker": "",
+                "manner": "",
+                "place": "",
+                "predicate": "hold",
+                "restrainer": "",
+                "secondary attribte of arg1": "",
+                "thing being restrained": "",
+                "thing held": 1058541,
+                "thing lasting": "",
+                "thing waited for": "",
+                "time": "",
+                "wait-er (not waiter": "",
+                "with whom": ""
+            }
+        },
+        {
+            "region_id": 1532,
+            "region_relations": {
+                "adverbial modification": "",
+                "attribte": "in 1058511",
+                "entity dressed p": "",
+                "manner": "",
+                "person ptting on clothes": "",
+                "person wearing clothes": 3798577,
+                "place": "",
+                "predicate": "dress",
+                "proper non component": ""
+            }
+        },
+        {
+            "region_id": 3132,
+            "region_relations": {
+                "attribte": "",
+                "casal agent": "",
+                "entity poised": "",
+                "focs": "",
+                "location": "on 1058534",
+                "manner": "",
+                "place": "",
+                "predicate": "stand",
+                "thing standing": 3798577,
+                "time": ""
+            }
+        }
+    ]
+}]
