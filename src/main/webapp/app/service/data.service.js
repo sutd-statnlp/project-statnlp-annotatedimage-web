@@ -8,7 +8,7 @@
 
     function DataService($resource) {
 
-        var endpointUrl = 'http://localhost:9000';
+        var endpointUrl = '';
 
         var service = {
             getEndpoint: getEndpoint
