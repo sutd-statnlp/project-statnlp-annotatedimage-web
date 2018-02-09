@@ -1,0 +1,105 @@
+<div class="container-fluid">
+    <!-- Advanced Select -->
+    <div class="row clearfix">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div class="card">
+                    <div class="header">
+                            <h2>
+                                REGION IMAGE
+                            </h2>
+                        </div>
+                <div class="body">
+                    <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <a href="{{'./data/images/' + vm.region.region_id + '.jpg'}}" data-sub-html="Region {{vm.region.region_id}}">
+                                <img class="img-responsive" width="{{vm.region.width}}" height="{{vm.region.height}}" ng-src="{{'./data/images/' + vm.region.region_id + '.jpg'}}">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        ANNOTAIONS & REGIONS
+                        <div class="pull-right">
+                            <button type="button" class="btn bg-blue waves-effect">SAVE</button>
+                        </div>
+                    </h2>
+                </div>
+                <div class="body m-region">
+                    <div class="row clearfix">
+                        <div class="col-md-12">
+                            <p class="col-blue">
+                                <b>{{vm.region.phrase}}</b>
+                            </p>
+                            <div ng-repeat="(key,value) in vm.region.annotation" class="col-md-4">
+                                <p>
+                                    <b>{{key}}</b>
+                                </p>
+                                <select class="form-control" data-live-search="true">
+                                    <option disabled selected value>NONE</option>
+                                    <option ng-repeat="object in vm.image.objects" ng-selected="{{object.object_id == value}}">{{object.names[0]}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #END# Advanced Select -->
+
+
+    <!-- <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        IMAGE GALLERY
+                    </h2>
+                </div>
+                <div class="body">
+                    <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <a href="{{vm.image.image_rl}}" data-sub-html="Demo Description">
+                                <img class="img-responsive thumbnail" ng-src="{{vm.image.image_rl}}">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        IMAGE UPLOAD - DRAG & DROP OR WITH CLICK & CHOOSE
+                    </h2>
+
+                </div>
+                <div class="body">
+                    <form action="/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
+                        <div class="dz-message">
+                            <div class="drag-icon-cph">
+                                <i class="material-icons">touch_app</i>
+                            </div>
+                            <h3>Drop images here or click to upload.</h3>
+
+                        </div>
+                        <div class="fallback">
+                            <input name="file" type="file" multiple accept="image/*" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+</div>

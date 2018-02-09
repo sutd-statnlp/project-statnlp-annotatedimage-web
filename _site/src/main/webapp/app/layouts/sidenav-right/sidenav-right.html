@@ -1,0 +1,30 @@
+<aside class="rightsidebar m-sidenav">
+
+    <!-- Menu -->
+    <div class="menu">
+        <ul class="list">
+            <li>
+                <!-- <a href="/">
+                    <i class="material-icons">home</i>
+                    <span>Home</span>
+                </a> -->
+            </li>
+            <li class="active" ng-repeat="item in vm.image.objects" ng-click="vm.clickItem($event)">
+                <a href="">
+                    <i class="material-icons">fiber_manual_record</i>
+                    <span class="text-capitalize"> {{$index + 1}}. {{item.names[0]}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- #Menu -->
+
+    <div class="legal">
+            <div class="copyright">
+                    <a href="javascript:void(0);">SUTD STATNLP</a>  &copy; 2018 
+            </div>
+            <div class="version">
+                <b>Version: </b> 1.0.0
+            </div>
+        </div>
+</aside>

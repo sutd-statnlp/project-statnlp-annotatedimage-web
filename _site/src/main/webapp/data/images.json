@@ -1,0 +1,315 @@
+[{
+    "image_id": 1,
+    "image_rl": "https://cs.stanford.edu/people/rak248/VG_100K_2/1.jpg",
+    "objects": [{
+            "h": 557,
+            "merged_object_ids": [],
+            "names": ["trees"],
+            "object_id": 1058549,
+            "synsets": ["tree.n.01"],
+            "w": 799,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "h": 290,
+            "merged_object_ids": [5046],
+            "names": ["sidewalk"],
+            "object_id": 1058534,
+            "synsets": ["sidewalk.n.01"],
+            "w": 722,
+            "x": 78,
+            "y": 308
+        },
+        {
+            "h": 538,
+            "merged_object_ids": [],
+            "names": ["bilding"],
+            "object_id": 1058508,
+            "synsets": ["bilding.n.01"],
+            "w": 222,
+            "x": 1,
+            "y": 0
+        },
+        {
+            "h": 258,
+            "merged_object_ids": [3798578],
+            "names": ["street"],
+            "object_id": 1058539,
+            "synsets": ["street.n.01"],
+            "w": 359,
+            "x": 439,
+            "y": 283
+        },
+        {
+            "h": 535,
+            "merged_object_ids": [],
+            "names": ["wall"],
+            "object_id": 1058543,
+            "synsets": ["wall.n.01"],
+            "w": 135,
+            "x": 0,
+            "y": 1
+        },
+        {
+            "h": 360,
+            "merged_object_ids": [],
+            "names": ["tree"],
+            "object_id": 1058545,
+            "synsets": ["tree.n.01"],
+            "w": 476,
+            "x": 178,
+            "y": 0
+        },
+        {
+            "h": 189,
+            "merged_object_ids": [],
+            "names": ["shade"],
+            "object_id": 5045,
+            "synsets": ["shade.n.01"],
+            "w": 274,
+            "x": 116,
+            "y": 344
+        },
+        {
+            "h": 176,
+            "merged_object_ids": [1058536],
+            "names": ["van"],
+            "object_id": 1058542,
+            "synsets": ["van.n.05"],
+            "w": 241,
+            "x": 533,
+            "y": 278
+        },
+        {
+            "h": 348,
+            "merged_object_ids": [],
+            "names": ["tree trnk"],
+            "object_id": 5055,
+            "synsets": ["trnk.n.01"],
+            "w": 78,
+            "x": 623,
+            "y": 213
+        },
+        {
+            "h": 363,
+            "merged_object_ids": [],
+            "names": ["clock"],
+            "object_id": 1058498,
+            "synsets": ["clock.n.01"],
+            "w": 77,
+            "x": 422,
+            "y": 63
+        },
+        {
+            "h": 147,
+            "merged_object_ids": [],
+            "names": ["windows"],
+            "object_id": 3798579,
+            "synsets": ["window.n.01"],
+            "w": 198,
+            "x": 602,
+            "y": 1
+        },
+        {
+            "h": 248,
+            "merged_object_ids": [1058540],
+            "names": ["man"],
+            "object_id": 3798576,
+            "synsets": ["man.n.01"],
+            "w": 82,
+            "x": 367,
+            "y": 264
+        },
+        {
+            "h": 259,
+            "merged_object_ids": [],
+            "names": ["man"],
+            "object_id": 3798577,
+            "synsets": ["man.n.01"],
+            "w": 57,
+            "x": 238,
+            "y": 254
+        },
+        {
+            "h": 430,
+            "merged_object_ids": [],
+            "names": ["lamp post"],
+            "object_id": 1058548,
+            "synsets": [],
+            "w": 43,
+            "x": 537,
+            "y": 63
+        },
+        {
+            "h": 179,
+            "merged_object_ids": [],
+            "names": ["sign"],
+            "object_id": 1058507,
+            "synsets": ["sign.n.02"],
+            "w": 78,
+            "x": 123,
+            "y": 13
+        },
+        {
+            "h": 164,
+            "merged_object_ids": [],
+            "names": ["car"],
+            "object_id": 1058515,
+            "synsets": ["car.n.01"],
+            "w": 80,
+            "x": 719,
+            "y": 342
+        },
+        {
+            "h": 164,
+            "merged_object_ids": [],
+            "names": ["back"],
+            "object_id": 5060,
+            "synsets": ["back.n.01"],
+            "w": 70,
+            "x": 716,
+            "y": 345
+        },
+        {
+            "h": 98,
+            "merged_object_ids": [],
+            "names": ["jacket"],
+            "object_id": 1058530,
+            "synsets": ["jacket.n.01"],
+            "w": 82,
+            "x": 367,
+            "y": 296
+        },
+        {
+            "h": 95,
+            "merged_object_ids": [],
+            "names": ["car"],
+            "object_id": 5049,
+            "synsets": ["car.n.01"],
+            "w": 78,
+            "x": 478,
+            "y": 319
+        },
+        {
+            "h": 128,
+            "merged_object_ids": [],
+            "names": ["pants"],
+            "object_id": 1058531,
+            "synsets": ["troser.n.01"],
+            "w": 48,
+            "x": 388,
+            "y": 369
+        },
+        {
+            "h": 103,
+            "merged_object_ids": [],
+            "names": ["shirt"],
+            "object_id": 1058511,
+            "synsets": ["shirt.n.01"],
+            "w": 54,
+            "x": 241,
+            "y": 287
+        },
+        {
+            "h": 143,
+            "merged_object_ids": [],
+            "names": ["parking meter"],
+            "object_id": 1058519,
+            "synsets": ["parking_meter.n.01"],
+            "w": 26,
+            "x": 577,
+            "y": 325
+        },
+        {
+            "h": 118,
+            "merged_object_ids": [],
+            "names": ["pants"],
+            "object_id": 1058528,
+            "synsets": ["troser.n.01"],
+            "w": 44,
+            "x": 245,
+            "y": 384
+        },
+        {
+            "h": 102,
+            "merged_object_ids": [],
+            "names": ["shirt"],
+            "object_id": 1058547,
+            "synsets": ["shirt.n.01"],
+            "w": 82,
+            "x": 368,
+            "y": 295
+        },
+        {
+            "h": 28,
+            "merged_object_ids": [5048],
+            "names": ["shoes"],
+            "object_id": 1058525,
+            "synsets": ["shoe.n.01"],
+            "w": 48,
+            "x": 388,
+            "y": 485
+        },
+        {
+            "h": 41,
+            "merged_object_ids": [],
+            "names": ["arm"],
+            "object_id": 1058546,
+            "synsets": ["arm.n.01"],
+            "w": 30,
+            "x": 370,
+            "y": 285
+        },
+        {
+            "h": 36,
+            "merged_object_ids": [],
+            "names": ["bike"],
+            "object_id": 1058535,
+            "synsets": ["bicycle.n.01"],
+            "w": 27,
+            "x": 337,
+            "y": 319
+        },
+        {
+            "h": 41,
+            "merged_object_ids": [],
+            "names": ["bike"],
+            "object_id": 5051,
+            "synsets": ["bicycle.n.01"],
+            "w": 27,
+            "x": 321,
+            "y": 311
+        },
+        {
+            "h": 9,
+            "merged_object_ids": [],
+            "names": ["headlight"],
+            "object_id": 5050,
+            "synsets": ["headlight.n.01"],
+            "w": 18,
+            "x": 517,
+            "y": 370
+        },
+        {
+            "h": 23,
+            "merged_object_ids": [],
+            "names": ["glasses"],
+            "object_id": 1058518,
+            "synsets": ["spectacles.n.01"],
+            "w": 43,
+            "x": 448,
+            "y": 317
+        },
+        {
+            "h": 8,
+            "merged_object_ids": [],
+            "names": ["chin"],
+            "object_id": 1058541,
+            "synsets": ["chin.n.01"],
+            "w": 9,
+            "x": 401,
+            "y": 288
+        }
+    ]
+}]
