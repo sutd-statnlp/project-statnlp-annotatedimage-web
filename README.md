@@ -1,4 +1,4 @@
-# StatNLP annotated images website 
+# StatNLP annotation images website 
 
 ## Developement
 

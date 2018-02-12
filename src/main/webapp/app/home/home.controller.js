@@ -23,6 +23,7 @@
             "width": 67,
             "x": 372,
             "y": 274,
+            "predicate": "",
             "annotation": {}
         };
         vm.annotations = [];
@@ -75,11 +76,17 @@
         }
 
         function loadRegionFromAnnotation(item, annotation) {
-            item['annotation']['predicate'] = annotation['predicate'];
+            item['predicate'] = annotation['predicate'];
             for (var key in annotation) {
                 if (key !== 'predicate')
                     item['annotation'][key] = annotation[key];
             }
+            $('#img-region').elevateZoom({
+                zoomType: "lens",
+                lensShape: "round",
+                lensSize: 160,
+                scrollZoom : true
+            });
         }
 
 
