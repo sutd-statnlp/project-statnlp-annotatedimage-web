@@ -8,6 +8,7 @@
     SidenavRightController.$inject = ['$scope', '$state', '$ocLazyLoad', 'ImageService'];
 
     function SidenavRightController($scope, $state, $ocLazyLoad, ImageService) {
+        
         var vm = this;
 
         vm.image = {
@@ -15,7 +16,6 @@
             image_rl: null,
             objects: []
         };
-        vm.clickItem = clickItem;
 
         loadImages();
 
@@ -29,12 +29,6 @@
 
         function onError(error) {
             console.log(error);
-        }
-
-        function clickItem($event) {
-            $('.rightsidebar li').removeClass('active');
-            var item = angular.element($event.currentTarget);
-            item.addClass('active');
         }
     }
 })();

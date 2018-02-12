@@ -23,13 +23,13 @@ module.exports = function (config) {
         // list of files / patterns to load in the browser
         files: [
             // bower:js
-            'src/main/webapp/bower_components/json3/lib/json3.js',
-            'src/main/webapp/bower_components/messageformat/messageformat.js',
             'src/main/webapp/bower_components/angular/angular.js',
             'src/main/webapp/bower_components/angular-aria/angular-aria.js',
             'src/main/webapp/bower_components/angular-resource/angular-resource.js',
             'src/main/webapp/bower_components/angular-sanitize/angular-sanitize.js',
             'src/main/webapp/bower_components/angular-ui-router/release/angular-ui-router.js',
+            'src/main/webapp/bower_components/json3/lib/json3.js',
+            'src/main/webapp/bower_components/messageformat/messageformat.js',
             'src/main/webapp/bower_components/oclazyload/dist/ocLazyLoad.js',
             'src/main/webapp/bower_components/angular-mocks/angular-mocks.js',
             // endbower

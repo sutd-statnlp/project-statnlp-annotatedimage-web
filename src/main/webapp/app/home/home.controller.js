@@ -26,6 +26,7 @@
             "predicate": "",
             "annotation": {}
         };
+        // vm.regions = [];
         vm.annotations = [];
 
         vm.image = {
@@ -33,6 +34,11 @@
             image_rl: null,
             objects: []
         };
+        vm.getObjectNameById  = getObjectNameById;
+        vm.chosenLabel = '';
+
+        vm.chooseLabel = chooseLabel;
+        vm.chooseObject = chooseObject;
 
         loadImages();
         loadAnnotations();
@@ -49,14 +55,11 @@
         }
 
         function loadRegions() {
-            // RegionService.getAll({}, onSuccess, onError);
+            RegionService.getAll({}, onSuccess, onError);
 
-            // function onSuccess(data) {
-            //     vm.region = data[0].regions[0];
-            //     injectAnnotationToRegion(vm.region);
-            // }
-
-
+            function onSuccess(data) {
+                vm.regions = data[0].regions;
+            }
         }
 
         function loadAnnotations() {
@@ -78,17 +81,27 @@
         function loadRegionFromAnnotation(item, annotation) {
             item['predicate'] = annotation['predicate'];
             for (var key in annotation) {
-                if (key !== 'predicate')
+                if (key !== 'predicate') {
                     item['annotation'][key] = annotation[key];
+                }
             }
             $('#img-region').elevateZoom({
                 zoomType: "lens",
                 lensShape: "round",
-                lensSize: 160,
-                scrollZoom : true
+                lensSize: 180,
+                scrollZoom: true
             });
         }
 
+
+        function getObjectNameById(id) {
+            for (var i = 0; i < vm.image.objects.length; i++) {
+                var item = vm.image.objects[i];
+                if (item.object_id === id)
+                    return item.names[0];
+            }
+            return null;
+        }
 
         function getAnnotationByRegionId(id) {
             for (var i = 0; i < vm.annotations.length; i++) {
@@ -99,8 +112,22 @@
             return null;
         }
 
+        function chooseLabel(label) {
+            vm.choseLabel = label;
+        }
+
+        function chooseObject(objectId){
+            console.log(objectId);
+            vm.region['annotation'][vm.choseLabel] = objectId;
+        }
+
         function onError(error) {
             console.log(error);
         }
+
+        function hoverObject() {
+            alert("sss");
+        }
+
     }
 })();
