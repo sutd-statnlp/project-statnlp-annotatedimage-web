@@ -34,10 +34,7 @@
             image_rl: null,
             objects: []
         };
-        vm.getObjectNameById  = getObjectNameById;
-        vm.chosenLabel = '';
-
-        vm.chooseLabel = chooseLabel;
+        vm.getObjectNameById = getObjectNameById;
         vm.chooseObject = chooseObject;
 
         loadImages();
@@ -86,13 +83,11 @@
                 }
             }
             $('#img-region').elevateZoom({
-                zoomType: "lens",
-                lensShape: "round",
-                lensSize: 180,
+                zoomType: "inner",
+                cursor: "crosshair",
                 scrollZoom: true
             });
         }
-
 
         function getObjectNameById(id) {
             for (var i = 0; i < vm.image.objects.length; i++) {
@@ -112,21 +107,13 @@
             return null;
         }
 
-        function chooseLabel(label) {
-            vm.choseLabel = label;
-        }
-
-        function chooseObject(objectId){
-            console.log(objectId);
-            vm.region['annotation'][vm.choseLabel] = objectId;
-        }
-
         function onError(error) {
             console.log(error);
         }
 
-        function hoverObject() {
-            alert("sss");
+        function chooseObject(objectId) {
+            var label = $('.m-region').attr('data-label');
+            vm.region['annotation'][label] = objectId;
         }
 
     }

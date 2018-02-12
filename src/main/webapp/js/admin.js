@@ -1,8 +1,8 @@
-$(document).ready(function(){
+$(document).ready(function () {
     if (typeof jQuery === "undefined") {
         throw new Error("jQuery plugins need to be before this file");
     }
-    
+
     $.AdminBSB = {};
     $.AdminBSB.options = {
         colors: {
@@ -42,7 +42,7 @@ $(document).ready(function(){
             effectOut: 'fadeOut'
         }
     }
-    
+
     /* Left Sidebar - Function =================================================================================================
      *  You can manage the left sidebar menu options
      *  
@@ -52,40 +52,40 @@ $(document).ready(function(){
             var _this = this;
             var $body = $('body');
             var $overlay = $('.overlay');
-    
+
             //Close sidebar
             $(window).click(function (e) {
                 var $target = $(e.target);
                 if (e.target.nodeName.toLowerCase() === 'i') {
                     $target = $(e.target).parent();
                 }
-    
+
                 if (!$target.hasClass('bars') && _this.isOpen() && $target.parents('#leftsidebar').length === 0) {
                     if (!$target.hasClass('js-right-sidebar')) $overlay.fadeOut();
                     $body.removeClass('overlay-open');
                 }
             });
-    
+
             $.each($('.menu-toggle.toggled'), function (i, val) {
                 $(val).next().slideToggle(0);
             });
-    
+
             //When page load
             $.each($('.menu .list li.active'), function (i, val) {
                 var $activeAnchors = $(val).find('a:eq(0)');
-    
+
                 $activeAnchors.addClass('toggled');
                 $activeAnchors.next().show();
             });
-    
+
             //Collapse or Expand Menu
             $('.menu-toggle').on('click', function (e) {
                 var $this = $(this);
                 var $content = $this.next();
-    
+
                 if ($($this.parents('ul')[0]).hasClass('list')) {
                     var $not = $(e.target).hasClass('menu-toggle') ? e.target : $(e.target).parents('.menu-toggle');
-    
+
                     $.each($('.menu-toggle.toggled').not($not).next(), function (i, val) {
                         if ($(val).is(':visible')) {
                             $(val).prev().toggleClass('toggled');
@@ -93,11 +93,11 @@ $(document).ready(function(){
                         }
                     });
                 }
-    
+
                 $this.toggleClass('toggled');
                 $content.slideToggle(320);
             });
-    
+
             //Set menu height
             _this.setMenuHeight();
             _this.checkStatuForResize(true);
@@ -105,7 +105,7 @@ $(document).ready(function(){
                 _this.setMenuHeight();
                 _this.checkStatuForResize(false);
             });
-    
+
             //Set Waves
             Waves.attach('.menu .list a', ['waves-block']);
             Waves.init();
@@ -115,7 +115,7 @@ $(document).ready(function(){
                 var configs = $.AdminBSB.options.leftSideBar;
                 var height = ($(window).height() - ($('.legal').outerHeight() + $('.user-info').outerHeight() + $('.navbar').innerHeight()));
                 var $el = $('.list');
-    
+
                 $el.slimscroll({
                     height: height + "px",
                     color: configs.scrollColor,
@@ -124,7 +124,7 @@ $(document).ready(function(){
                     borderRadius: configs.scrollBorderRadius,
                     railBorderRadius: configs.scrollRailBorderRadius
                 });
-    
+
                 //Scroll active menu item when page load, if option set = true
                 if ($.AdminBSB.options.leftSideBar.scrollActiveItemWhenPageLoad) {
                     var activeItemOffsetTop = $('.menu .list li.active')[0].offsetTop
@@ -138,13 +138,13 @@ $(document).ready(function(){
             var $body = $('body');
             var $openCloseBar = $('.navbar .navbar-header .bars');
             var width = $body.width();
-    
+
             if (firstTime) {
                 $body.find('.content, .sidebar').addClass('no-animate').delay(1000).queue(function () {
                     $(this).removeClass('no-animate').dequeue();
                 });
             }
-    
+
             if (width < $.AdminBSB.options.leftSideBar.breakpointWidth) {
                 $body.addClass('ls-closed');
                 $openCloseBar.fadeIn();
@@ -158,7 +158,7 @@ $(document).ready(function(){
         }
     };
     //==========================================================================================================================
-    
+
     /* Right Sidebar - Function ================================================================================================
      *  You can manage the right sidebar menu options
      *  
@@ -168,20 +168,20 @@ $(document).ready(function(){
             var _this = this;
             var $sidebar = $('#rightsidebar');
             var $overlay = $('.overlay');
-    
+
             //Close sidebar
             $(window).click(function (e) {
                 var $target = $(e.target);
                 if (e.target.nodeName.toLowerCase() === 'i') {
                     $target = $(e.target).parent();
                 }
-    
+
                 if (!$target.hasClass('js-right-sidebar') && _this.isOpen() && $target.parents('#rightsidebar').length === 0) {
                     if (!$target.hasClass('bars')) $overlay.fadeOut();
                     $sidebar.removeClass('open');
                 }
             });
-    
+
             $('.js-right-sidebar').on('click', function () {
                 $sidebar.toggleClass('open');
                 if (_this.isOpen()) {
@@ -196,7 +196,7 @@ $(document).ready(function(){
         }
     }
     //==========================================================================================================================
-    
+
     /* Searchbar - Function ================================================================================================
      *  You can manage the search bar
      *  
@@ -205,17 +205,17 @@ $(document).ready(function(){
     $.AdminBSB.search = {
         activate: function () {
             var _this = this;
-    
+
             //Search button click event
             $('.js-search').on('click', function () {
                 _this.showSearchBar();
             });
-    
+
             //Close search click event
             $searchBar.find('.close-search').on('click', function () {
                 _this.hideSearchBar();
             });
-    
+
             //ESC key on pressed
             $searchBar.find('input[type="text"]').on('keyup', function (e) {
                 if (e.keyCode == 27) {
@@ -233,7 +233,7 @@ $(document).ready(function(){
         }
     }
     //==========================================================================================================================
-    
+
     /* Navbar - Function =======================================================================================================
      *  You can manage the navbar
      *  
@@ -242,7 +242,7 @@ $(document).ready(function(){
         activate: function () {
             var $body = $('body');
             var $overlay = $('.overlay');
-    
+
             //Open left sidebar panel
             $('.bars').on('click', function () {
                 $body.toggleClass('overlay-open');
@@ -252,12 +252,12 @@ $(document).ready(function(){
                     $overlay.fadeOut();
                 }
             });
-    
+
             //Close collapse bar on click event
             $('.nav [data-close="true"]').on('click', function () {
                 var isVisible = $('.navbar-toggle').is(':visible');
                 var $navbarCollapse = $('.navbar-collapse');
-    
+
                 if (isVisible) {
                     $navbarCollapse.slideUp(function () {
                         $navbarCollapse.removeClass('in').removeAttr('style');
@@ -267,7 +267,7 @@ $(document).ready(function(){
         }
     }
     //==========================================================================================================================
-    
+
     /* Input - Function ========================================================================================================
      *  You can manage the inputs(also textareas) with name of class 'form-control'
      *  
@@ -278,7 +278,7 @@ $(document).ready(function(){
             $('.form-control').focus(function () {
                 $(this).parent().addClass('focused');
             });
-    
+
             //On focusout event
             $('.form-control').focusout(function () {
                 var $this = $(this);
@@ -290,12 +290,12 @@ $(document).ready(function(){
                     $this.parents('.form-line').removeClass('focused');
                 }
             });
-    
+
             //On label click
             $('body').on('click', '.form-float .form-line .form-label', function () {
                 $(this).parent().find('input').focus();
             });
-    
+
             //Not blank form
             $('.form-control').each(function () {
                 if ($(this).val() !== '') {
@@ -305,7 +305,7 @@ $(document).ready(function(){
         }
     }
     //==========================================================================================================================
-    
+
     /* Form - Select - Function ================================================================================================
      *  You can manage the 'select' of form elements
      *  
@@ -318,16 +318,16 @@ $(document).ready(function(){
         }
     }
     //==========================================================================================================================
-    
+
     /* DropdownMenu - Function =================================================================================================
      *  You can manage the dropdown menu
      *  
      */
-    
+
     $.AdminBSB.dropdownMenu = {
         activate: function () {
             var _this = this;
-    
+
             $('.dropdown, .dropup, .btn-group').on({
                 "show.bs.dropdown": function () {
                     var dropdown = _this.dropdownEffect(this);
@@ -350,7 +350,7 @@ $(document).ready(function(){
                     }
                 }
             });
-    
+
             //Set Waves
             Waves.attach('.dropdown-menu li a', ['waves-block']);
             Waves.init();
@@ -360,7 +360,7 @@ $(document).ready(function(){
                 effectOut = $.AdminBSB.options.dropdownMenu.effectOut;
             var dropdown = $(target),
                 dropdownMenu = $('.dropdown-menu', target);
-    
+
             if (dropdown.length > 0) {
                 var udEffectIn = dropdown.data('effect-in');
                 var udEffectOut = dropdown.data('effect-out');
@@ -371,7 +371,7 @@ $(document).ready(function(){
                     effectOut = udEffectOut;
                 }
             }
-    
+
             return {
                 target: target,
                 dropdown: dropdown,
@@ -394,7 +394,7 @@ $(document).ready(function(){
                 data.dropdownMenu.removeClass('animated dropdown-animated');
                 data.dropdownMenu.removeClass(data.effectIn);
                 data.dropdownMenu.removeClass(data.effectOut);
-    
+
                 if (typeof callback == 'function') {
                     callback();
                 }
@@ -402,7 +402,7 @@ $(document).ready(function(){
         }
     }
     //==========================================================================================================================
-    
+
     /* Browser - Function ======================================================================================================
      *  You can manage browser
      *  
@@ -414,17 +414,17 @@ $(document).ready(function(){
     var firefox = 'Mozilla Firefox';
     var chrome = 'Google Chrome';
     var safari = 'Safari';
-    
+
     $.AdminBSB.browser = {
         activate: function () {
             var _this = this;
             var className = _this.getClassName();
-    
+
             if (className !== '') $('html').addClass(_this.getClassName());
         },
         getBrowser: function () {
             var userAgent = navigator.userAgent.toLowerCase();
-    
+
             if (/edge/i.test(userAgent)) {
                 return edge;
             } else if (/rv:11/i.test(userAgent)) {
@@ -440,12 +440,12 @@ $(document).ready(function(){
             } else if (!!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)) {
                 return safari;
             }
-    
+
             return undefined;
         },
         getClassName: function () {
             var browser = this.getBrowser();
-    
+
             if (browser === edge) {
                 return 'edge';
             } else if (browser === ie11) {
@@ -466,7 +466,7 @@ $(document).ready(function(){
         }
     }
     //==========================================================================================================================
-    
+
     $(function () {
         $.AdminBSB.browser.activate();
         $.AdminBSB.leftSideBar.activate();
@@ -476,15 +476,45 @@ $(document).ready(function(){
         $.AdminBSB.input.activate();
         $.AdminBSB.select.activate();
         $.AdminBSB.search.activate();
-    
+
         setTimeout(function () {
             $('.page-loader-wrapper').fadeOut();
         }, 50);
     });
 
+    var currentIndex = 0;
+    loadLabel(currentIndex);
 
-    $(".m-labels li").click(function () {
-        $(".m-labels li").removeClass('active');
-        $(this).addClass('active');
-    });
+    $("#btn-nextrole").click(nextRole);
+
+    $("#btn-prevrole").click(prevRole);
+
+    function nextRole() {
+        if (currentIndex >= $('.m-label').length - 1)
+            currentIndex = -1;
+        currentIndex++;
+        loadLabel(currentIndex);
+    }
+
+    function prevRole() {
+        if (currentIndex <= 0)
+            currentIndex = $('.m-label').length;
+        currentIndex--;
+        loadLabel(currentIndex);
+    }
+
+    function loadLabel(labelIndex) {
+        $('.m-label b').removeClass('label label-warning');
+        $('.m-label').each(function (index) {
+            if (labelIndex === index) {
+                var labelEle = $(this).find('b');
+                labelEle.addClass('label label-warning');
+                $('.m-region').attr('data-label', labelEle.text());
+            }
+        });
+    }
+
+    $(document).bind('keyup', 'shift+a', nextRole);
+
+    $(document).bind('keydown', 'shift+s', prevRole);
 });
