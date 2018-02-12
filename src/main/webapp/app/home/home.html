@@ -1,30 +1,30 @@
-<aside id="rightsidebar" class="right-sidebar">
-    <ul class="nav nav-tabs tab-nav-right" role="tablist">
-        <li role="presentation" class="active">
-            <a href="#skins" data-toggle="tab">LABELS</a>
-        </li>
-        <li role="presentation">
-            <a href="#settings" data-toggle="tab">OBJECTS</a>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div role="tabpanel" class="tab-pane fade in active in active" id="skins">
-            <ul class="demo-choose-skin m-labels">
-                <li ng-repeat="(key,value) in vm.region.annotation" ng-click="vm.chooseLabel(key)" data-theme="blue">
-                    <div class="blue"></div>
-                    <span>{{key}}</span>
-                </li>
-            </ul>
+<aside class="rightsidebar m-sidenav">
+
+    <!-- Menu -->
+    <div class="menu">
+        <ul class="list m-objects">
+            <li>
+                <!-- <a href="/">
+                            <i class="material-icons">home</i>
+                            <span>Home</span>
+                        </a> -->
+            </li>
+            <li class="active" ng-repeat="item in vm.image.objects" ng-click="vm.chooseObject(item.object_id)">
+                <a href="">
+                    <i class="material-icons">fiber_manual_record</i>
+                    <span class="text-capitalize"> {{$index + 1}}. {{item.names[0]}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- #Menu -->
+
+    <div class="legal">
+        <div class="copyright">
+            <a href="javascript:void(0);">SUTD STATNLP</a> &copy; 2018
         </div>
-        <div role="tabpanel" class="tab-pane fade" id="settings">
-            <div class="demo-settings">
-                <ul class="demo-choose-skin m-labels">
-                    <li ng-repeat="item in vm.image.objects" ng-click="vm.chooseObject(item.object_id)" data-theme="blue">
-                        <div class="blue"></div>
-                        <span>{{item.names[0]}}</span>
-                    </li>
-                </ul>
-            </div>
+        <div class="version">
+            <b>Version: </b> 1.0.0-beta
         </div>
     </div>
 </aside>
@@ -32,7 +32,7 @@
 <div class="container-fluid">
     <!-- Advanced Select -->
     <div id="annotation" class="row clearfix">
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
             <div class="card">
                 <div class="header">
                     <h2>
@@ -45,21 +45,21 @@
                     <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <a href="{{'./data/images/' + vm.region.region_id + '.jpg'}}" data-sub-html="{{vm.region.phrase}}" data-zoom-image="{{'./data/images/' + vm.region.region_id + '.jpg'}}">
-                                <img id="img-region" class="img-responsive pull-right" width="{{vm.region.width}}" height="{{vm.region.height}}" ng-src="{{'./data/images/' + vm.region.region_id + '.jpg'}}">
+                                <img id="img-region" class="img-responsive" width="{{vm.region.width}}" height="{{vm.region.height}}" ng-src="{{'./data/images/' + vm.region.region_id + '.jpg'}}">
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
             <div class="card">
                 <div class="header">
                     <h2>
                         ANNOTAIONS & REGIONS
                     </h2>
                 </div>
-                <div class="body m-region">
+                <div class="body m-region" data-label="">
                     <div class="row clearfix">
                         <div class="col-md-12">
                             <p>
@@ -71,7 +71,7 @@
                                 <b class="col-blue">{{vm.region.phrase}}</b>
                             </p>
                             <br>
-                            <div ng-repeat="(key,value) in vm.region.annotation" class="col-md-4">
+                            <div ng-repeat="(key,value) in vm.region.annotation" class="col-md-3 m-label">
                                 <b>{{key}}</b>
                                 <span class="label label-primary">{{vm.getObjectNameById(value)}}</span>
                             </div>
@@ -83,30 +83,8 @@
         </div>
     </div>
     <!-- #END# Advanced Select -->
-
-    <div id="gallery" class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="card">
-                <div class="header">
-                    <h2>
-                        REGION IMAGES
-                    </h2>
-                </div>
-                <div class="body">
-                    <div id="aniimated-thumbnials-gallery" class="list-unstyled row clearfix">
-                        <div ng-repeat="item in vm.regions" class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                            <a href="{{'./data/images/' + item.region_id + '.jpg'}}" data-sub-html="{{item.phrase}}">
-                                <img class="thumbnail" width="{{vm.region.width}}" height="{{vm.region.height}}" ng-src="{{'./data/images/' + item.region_id + '.jpg'}}">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div id="upload" class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
             <div class="card">
                 <div class="header">
                     <h2>
