@@ -26,6 +26,7 @@
             "predicate": "",
             "annotation": {}
         };
+        vm.regions = [];
         vm.annotations = [];
 
         vm.image = {
@@ -49,14 +50,11 @@
         }
 
         function loadRegions() {
-            // RegionService.getAll({}, onSuccess, onError);
+            RegionService.getAll({}, onSuccess, onError);
 
-            // function onSuccess(data) {
-            //     vm.region = data[0].regions[0];
-            //     injectAnnotationToRegion(vm.region);
-            // }
-
-
+            function onSuccess(data) {
+                vm.regions = data[0].regions;
+            }
         }
 
         function loadAnnotations() {
@@ -84,7 +82,7 @@
             $('#img-region').elevateZoom({
                 zoomType: "lens",
                 lensShape: "round",
-                lensSize: 160,
+                lensSize: 180,
                 scrollZoom : true
             });
         }

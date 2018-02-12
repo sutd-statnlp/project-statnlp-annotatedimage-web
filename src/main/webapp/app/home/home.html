@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <!-- Advanced Select -->
-    <div class="row clearfix">
+    <div id="annotation" class="row clearfix">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <div class="card">
                 <div class="header">
@@ -11,7 +11,7 @@
                 <div class="body">
                     <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <a href="{{'./data/images/' + vm.region.region_id + '.jpg'}}" data-sub-html="Region {{vm.region.region_id}}" data-zoom-image="{{'./data/images/' + vm.region.region_id + '.jpg'}}">
+                            <a href="{{'./data/images/' + vm.region.region_id + '.jpg'}}" data-sub-html="{{vm.region.phrase}}" data-zoom-image="{{'./data/images/' + vm.region.region_id + '.jpg'}}">
                                 <img id="img-region" class="img-responsive" width="{{vm.region.width}}" height="{{vm.region.height}}" ng-src="{{'./data/images/' + vm.region.region_id + '.jpg'}}">
                             </a>
                         </div>
@@ -55,53 +55,52 @@
     </div>
     <!-- #END# Advanced Select -->
 
-
-    <!-- <div class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="card">
-                <div class="header">
-                    <h2>
-                        IMAGE GALLERY
-                    </h2>
-                </div>
-                <div class="body">
-                    <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                            <a href="{{vm.image.image_rl}}" data-sub-html="Demo Description">
-                                <img class="img-responsive thumbnail" ng-src="{{vm.image.image_rl}}">
-                            </a>
+        <div id="gallery" class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            REGION IMAGES
+                        </h2>
+                    </div>
+                    <div class="body">
+                        <div id="aniimated-thumbnials-gallery" class="list-unstyled row clearfix">
+                            <div ng-repeat="item in vm.regions" class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <a href="{{'./data/images/' + item.region_id + '.jpg'}}" data-sub-html="{{item.phrase}}">
+                                    <img class="thumbnail" width="{{vm.region.width}}" height="{{vm.region.height}}" ng-src="{{'./data/images/' + item.region_id + '.jpg'}}">
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div> -->
 
-    <!-- <div class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="card">
-                <div class="header">
-                    <h2>
-                        IMAGE UPLOAD - DRAG & DROP OR WITH CLICK & CHOOSE
-                    </h2>
-
-                </div>
-                <div class="body">
-                    <form action="/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
-                        <div class="dz-message">
-                            <div class="drag-icon-cph">
-                                <i class="material-icons">touch_app</i>
+        <div id="upload" class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            IMAGE UPLOAD - DRAG & DROP OR WITH CLICK & CHOOSE
+                        </h2>
+    
+                    </div>
+                    <div class="body">
+                        <form action="/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
+                            <div class="dz-message">
+                                <div class="drag-icon-cph">
+                                    <i class="material-icons">touch_app</i>
+                                </div>
+                                <h3>Drop images here or click to upload.</h3>
+    
                             </div>
-                            <h3>Drop images here or click to upload.</h3>
-
-                        </div>
-                        <div class="fallback">
-                            <input name="file" type="file" multiple accept="image/*" />
-                        </div>
-                    </form>
+                            <div class="fallback">
+                                <input name="file" type="file" multiple accept="image/*" />
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div> -->
 
 </div>
