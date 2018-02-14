@@ -517,4 +517,5 @@ $(document).ready(function () {
     $(document).bind('keyup', 'shift+a', nextRole);
 
     $(document).bind('keydown', 'shift+s', prevRole);
+
 });

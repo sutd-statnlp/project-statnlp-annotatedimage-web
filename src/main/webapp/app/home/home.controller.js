@@ -83,8 +83,10 @@
                 }
             }
             $('#img-region').elevateZoom({
-                zoomType: "inner",
-                cursor: "crosshair",
+                zoomWindowWidth: 200,
+                zoomWindowHeight: 240,
+                lensFadeIn: 500,
+                lensFadeOut: 500,
                 scrollZoom: true
             });
         }
