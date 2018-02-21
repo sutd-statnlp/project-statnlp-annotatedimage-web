@@ -87,7 +87,9 @@
                 zoomWindowHeight: 240,
                 lensFadeIn: 500,
                 lensFadeOut: 500,
-                scrollZoom: true
+                scrollZoom: true,
+                zoomType: "inner",
+                cursor: "crosshair"
             });
         }
 
