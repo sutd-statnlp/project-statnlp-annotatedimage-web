@@ -5,7 +5,10 @@
   background-color: #B3E5FC; }
 
 .m-sidenav {
-  width: 190px; }
+  width: 198px; }
+
+.m-sidenav-left {
+  width: 208px; }
 
 .justify-content-center {
   text-align: center;
@@ -21,3 +24,6 @@
 
 .m-region-image {
   height: 360px; }
+
+.m-btn-social {
+  width: 200px; }

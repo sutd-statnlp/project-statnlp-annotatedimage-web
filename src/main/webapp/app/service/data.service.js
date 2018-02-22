@@ -11,12 +11,17 @@
         var endpointUrl = '';
 
         var service = {
-            getEndpoint: getEndpoint
+            getEndpoint: getEndpoint,
+            getDbEndpoint: getDbEndpoint
         };
         return service;
 
         function getEndpoint() {
             return endpointUrl;
+        }
+
+        function getDbEndpoint() {
+            return 'localhost:3000';
         }
     }
 })();

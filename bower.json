@@ -19,9 +19,7 @@
   },
   "overrides": {
     "angular": {
-      "dependencies": {
-        
-      }
+      "dependencies": {}
     }
   },
   "resolutions": {
