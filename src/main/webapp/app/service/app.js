@@ -1,6 +1,6 @@
 var config = {
     apiKey: "AIzaSyDunyQ1AW80_soQd2clJ3WKJse-tIvVg9s",
-    authDomain: "statnlp-annotation-image.firebaseapp.com",
+    authDomain: "annotation.statnlp.tk",
     databaseURL: "https://statnlp-annotation-image.firebaseio.com",
     projectId: "statnlp-annotation-image",
     storageBucket: "statnlp-annotation-image.appspot.com",
