@@ -34,7 +34,7 @@
             item.addClass('m-item-active');
         }
 
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             $('.m-scroll').click(function () {
                 $('html, body').animate({
@@ -43,8 +43,9 @@
                 return false;
             });
         });
-        
-    }
-    
-})();
 
+        $('#btn-signout').click(globalSignOut);
+
+    }
+
+})();

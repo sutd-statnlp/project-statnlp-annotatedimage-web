@@ -23,6 +23,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.1.19/css/materialdesignicons.min.css">
 
     <!-- Bootstrap Core Css -->
     <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -56,7 +57,7 @@
 
     <!-- Light Gallery Plugin Css -->
     <link href="plugins/light-gallery/css/lightgallery.css" rel="stylesheet">
-    
+
     <!-- Intro -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.7.0/introjs.min.css">
 
@@ -80,26 +81,48 @@
     </div>
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
-    <!-- #END# Overlay For Sidebars -->
-    <div ui-view="navbar">
+    <div class="m-main" style="display: none">
+        <!-- #END# Overlay For Sidebars -->
+        <div ui-view="navbar">
+        </div>
+        <section>
+            <div ui-view="sidenav">
+            </div>
+            <div ui-view="sidenav-right">
+            </div>
+        </section>
+
+        <section class="content">
+            <div ui-view="content">
+                <!-- Angular views -->
+            </div>
+        </section>
+
     </div>
-    <section>
-        <div ui-view="sidenav">
-        </div>
-        <div ui-view="sidenav-right">
-        </div>
-    </section>
-
-    <section class="content">
-        <div ui-view="content">
-            <!-- Angular views -->
-        </div>
-    </section>
-
     <noscript>
         <h1>You must enable javascript to view this page.</h1>
     </noscript>
 
+    <div class="m-login justify-content-center p-t-20" style="display: none">
+        <p>
+            <button id="btn-signin-google" type="button" class="btn btn-danger waves-effect m-btn-social">
+                <i class="mdi mdi-google-plus mdi-light"></i>
+                <span>Sign in with Google</span>
+            </button>
+        </p>
+        <p>
+            <button id="btn-signin-facebook" type="button" class="btn bg-indigo waves-effect  m-btn-social">
+                <i class="mdi mdi-facebook mdi-light"></i>
+                <span style="color: white">Sign in with Facebook</span>
+            </button>
+        </p>
+        <p>
+            <button id="btn-signin-twitter" type="button" class="btn btn-primary waves-effect  m-btn-social">
+                <i class="mdi mdi-twitter mdi-light"></i>
+                <span>Sign in with Twitter</span>
+            </button>
+        </p>
+    </div>
     <!-- Jquery Core Js -->
     <script src="plugins/jquery/jquery.min.js"></script>
 
@@ -152,6 +175,9 @@
     <!-- Demo Js -->
     <script src="js/demo.js"></script>
 
+
+    <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+
     <!-- build:js app/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
@@ -165,13 +191,14 @@
     <!-- endinject -->
     <!-- endbuild -->
 
-   
+
     <!-- build:js app/app.js  -->
     <!-- inject:js -->
     <script src="app/app.module.js"></script>
     <script src="app/service/region.service.js"></script>
     <script src="app/service/image.service.js"></script>
     <script src="app/service/data.service.js"></script>
+    <script src="app/service/app.js"></script>
     <script src="app/service/annotation.service.js"></script>
     <script src="app/layouts/sidenav-right/sidenav-right.controller.js"></script>
     <script src="app/layouts/sidenav/sidenav.controller.js"></script>

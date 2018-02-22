@@ -2,8 +2,8 @@
 
     <!-- Menu -->
     <div class="menu">
-        <ul class="list m-objects" data-step="1" data-intro='Choose the object for the label'>
-            <li>
+        <ul class="list m-objects">
+            <li data-step="1" data-intro='Choose the object for the label'>
                 <!-- <a href="/">
                             <i class="material-icons">home</i>
                             <span>Home</span>
@@ -18,15 +18,6 @@
         </ul>
     </div>
     <!-- #Menu -->
-
-    <div class="legal">
-        <div class="copyright">
-            <a href="javascript:void(0);">SUTD STATNLP</a> &copy; 2018
-        </div>
-        <div class="version">
-            <b>Version: </b> 1.0.0-beta
-        </div>
-    </div>
 </aside>
 
 <div class="container-fluid">
@@ -55,7 +46,9 @@
                 <div class="header">
                     <h2>
                         ANNOTAIONS & REGIONS
+                        <button ng-click="vm.saveAnnotation()" type="button" class="btn bg-blue waves-effect pull-right" data-step="4" data-intro='Click save or use shortcut Ctrl + S for saving annotation'>SAVE</button>
                     </h2>
+                    
                 </div>
                 <div class="body m-region" data-label="">
                     <div class="row clearfix">
@@ -69,7 +62,7 @@
                                 <b class="col-blue">{{vm.region.phrase}}</b>
                             </p>
                             <br>
-                            <div ng-repeat="(key,value) in vm.region.annotation" class="col-md-6 m-label">
+                            <div ng-repeat="(key,value) in vm.region.relations" class="col-md-6 m-label">
                                 <b>{{key}}</b>
                                 <span class="label label-primary">{{vm.getObjectNameById(value)}}</span>
                             </div>
@@ -81,7 +74,7 @@
         </div>
     </div>
     <!-- #END# Advanced Select -->
-    <div id="upload" class="row clearfix">
+    <!-- <div id="upload" class="row clearfix">
         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
             <div class="card">
                 <div class="header">
@@ -106,6 +99,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 </div>

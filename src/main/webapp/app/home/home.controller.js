@@ -15,20 +15,17 @@
         $ocLazyLoad.load('js/pages/medias/image-gallery.js');
 
         var vm = this;
-        vm.region = {
-            "height": 57,
-            "image_id": 1,
-            "phrase": "man has raised his arm",
-            "region_id": 1736,
-            "width": 67,
-            "x": 372,
-            "y": 274,
-            "predicate": "",
-            "annotation": {}
-        };
-        // vm.regions = [];
-        vm.annotations = [];
+        vm.saveAnnotation = saveAnnotation;
 
+        var regions = [];
+        var annotations = [];
+        var images = [];
+        vm.annotation = {
+            relationships: []
+        };
+        vm.region = {
+            region_id: 'default'
+        };
         vm.image = {
             image_id: null,
             image_rl: null,
@@ -38,48 +35,64 @@
         vm.chooseObject = chooseObject;
 
         loadImages();
-        loadAnnotations();
-        loadRegions();
 
 
         function loadImages() {
             ImageService.getAll({}, onSuccess, onError);
 
             function onSuccess(data) {
-                vm.images = data;
-                vm.image = data[0];
+                images = data;
+                vm.image = images[0];
+                loadRegions(vm.image);
             }
         }
 
-        function loadRegions() {
+        function loadRegions(image) {
             RegionService.getAll({}, onSuccess, onError);
 
             function onSuccess(data) {
-                vm.regions = data[0].regions;
+                regions = data;
+
+                vm.region = getRegionsByImageId(image.image_id)[0];
+                vm.region["relations"] = {};
+                loadAnnotations(vm.region);
             }
         }
 
-        function loadAnnotations() {
+        function loadAnnotations(region) {
             AnnotationService.getAll({}, onSuccess, onError);
 
             function onSuccess(data) {
-                vm.annotations = data[0].relationships;
-                injectAnnotationToRegion(vm.region);
+                annotations = data;
+                vm.annotation = annotations[0];
+                injectAnnotationToRegion(region);
             }
+        }
+
+        function saveAnnotation() {
+            var user = {
+                user_name: globalUser.displayName,
+                user_email: globalUser.email,
+                created_time: new Date().getTime(),
+                annotations: annotations,
+                regions: regions,
+                images: images
+            };
+            AnnotationService.save(user);
         }
 
         function injectAnnotationToRegion(item) {
-            var annotation = getAnnotationByRegionId(item.region_id);
-            if (annotation !== null) {
-                loadRegionFromAnnotation(item, annotation);
+            var relations = getRelationsByRegion(item);
+            if (relations !== null) {
+                loadRegionFromAnnotation(item, relations);
             }
         }
 
-        function loadRegionFromAnnotation(item, annotation) {
-            item['predicate'] = annotation['predicate'];
-            for (var key in annotation) {
+        function loadRegionFromAnnotation(item, relations) {
+            item['predicate'] = relations['predicate'];
+            for (var key in relations) {
                 if (key !== 'predicate') {
-                    item['annotation'][key] = annotation[key];
+                    item['relations'][key] = relations[key];
                 }
             }
             $('#img-region').elevateZoom({
@@ -102,11 +115,13 @@
             return null;
         }
 
-        function getAnnotationByRegionId(id) {
-            for (var i = 0; i < vm.annotations.length; i++) {
-                var item = vm.annotations[i];
-                if (item.region_id === id)
+        function getRelationsByRegion(region) {
+            for (var i = 0; i < vm.annotation.relationships.length; i++) {
+                var item = vm.annotation.relationships[i];
+                if (item.region_id === region.region_id) {
+                    region['relationshipIndex'] = i;
                     return item.region_relations;
+                }
             }
             return null;
         }
@@ -117,8 +132,17 @@
 
         function chooseObject(objectId) {
             var label = $('.m-region').attr('data-label');
-            vm.region['annotation'][label] = objectId;
+            vm.region['relations'][label] = objectId;
+            vm.annotation.relationships[vm.region.relationshipIndex].region_relations[label] = objectId;
         }
 
+        function getRegionsByImageId(id) {
+            for (var i = 0; i < regions.length; i++) {
+                var item = regions[i];
+                if (item.id === id)
+                    return item.regions;
+            }
+            return null;
+        }
     }
 })();
