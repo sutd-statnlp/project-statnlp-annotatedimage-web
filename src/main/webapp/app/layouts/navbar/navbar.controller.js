@@ -9,6 +9,7 @@
 
     function NavbarController($scope, $state, $ocLazyLoad, ImageService, Upload, AnnotationService) {
         $ocLazyLoad.load('js/admin.js');
+        $ocLazyLoad.load('js/pages/ui/tooltips-popovers.js');
         var vm = this;
 
         vm.upload = upload;
