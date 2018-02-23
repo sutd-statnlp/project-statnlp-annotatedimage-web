@@ -5,12 +5,13 @@
         .module('statnlpApp')
         .controller('NavbarController', NavbarController);
 
-    NavbarController.$inject = ['$scope', '$state', '$ocLazyLoad', 'ImageService'];
+    NavbarController.$inject = ['$scope', '$state', '$ocLazyLoad', 'ImageService', 'Upload', 'AnnotationService'];
 
-    function NavbarController($scope, $state, $ocLazyLoad, ImageService) {
+    function NavbarController($scope, $state, $ocLazyLoad, ImageService, Upload, AnnotationService) {
         $ocLazyLoad.load('js/admin.js');
         var vm = this;
 
+        vm.upload = upload;
         vm.images = [];
         vm.imageClick = imageClick;
 
@@ -38,13 +39,17 @@
 
             $('.m-scroll').click(function () {
                 $('html, body').animate({
-                    scrollTop: $($(this).attr('href')).offset().top
+                    scrollTop: $($(this).attr('data-href')).offset().top - 80
                 }, 500);
                 return false;
             });
         });
 
         $('#btn-signout').click(globalSignOut);
+
+        function upload(file) {
+            AnnotationService.upload(file);
+        }
 
     }
 

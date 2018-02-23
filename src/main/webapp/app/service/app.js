@@ -1,6 +1,6 @@
 var config = {
     apiKey: "AIzaSyDunyQ1AW80_soQd2clJ3WKJse-tIvVg9s",
-    authDomain: "statnlp-annotation-image.firebaseapp.com",
+    authDomain: "wsregistration.statnlp.tk",
     databaseURL: "https://statnlp-annotation-image.firebaseio.com",
     projectId: "statnlp-annotation-image",
     storageBucket: "statnlp-annotation-image.appspot.com",
@@ -68,6 +68,5 @@ $(document).ready(function () {
     $('#btn-signin-google').click(globalSignInWithGoogle);
     $('#btn-signin-facebook').click(globalSignInWithFacebook);
     $('#btn-signin-twitter').click(globalSignInWithTwitter);
-
     
 });

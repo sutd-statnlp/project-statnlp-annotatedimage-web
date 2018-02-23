@@ -6,7 +6,8 @@
             'ngResource',
             'ngAria',
             'ui.router',
-            'oc.lazyLoad'
+            'oc.lazyLoad',
+            'ngFileUpload'
         ])
         .run(run);
 

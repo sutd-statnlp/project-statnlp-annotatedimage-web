@@ -10,16 +10,16 @@
     function HomeController($scope, $state, $ocLazyLoad, ImageService, RegionService, AnnotationService) {
         $ocLazyLoad.load('plugins/dropzone/dropzone.js').then(function () {
             $ocLazyLoad.load('js/pages/forms/advanced-form-elements.js');
-
+            $ocLazyLoad.load('js/pages/ui/notifications.js');
         });
-        $ocLazyLoad.load('js/pages/medias/image-gallery.js');
 
         var vm = this;
         vm.saveAnnotation = saveAnnotation;
-
+        vm.chooseRegion = chooseRegion;
         var regions = [];
         var annotations = [];
         var images = [];
+        vm.imageRegions = [];
         vm.annotation = {
             relationships: []
         };
@@ -53,7 +53,10 @@
             function onSuccess(data) {
                 regions = data;
 
-                vm.region = getRegionsByImageId(image.image_id)[0];
+                vm.imageRegions = getRegionsByImageId(image.image_id);
+                $ocLazyLoad.load('js/pages/medias/image-gallery.js');
+
+                vm.region = vm.imageRegions[0];
                 vm.region["relations"] = {};
                 loadAnnotations(vm.region);
             }
@@ -74,9 +77,7 @@
                 user_name: globalUser.displayName,
                 user_email: globalUser.email,
                 created_time: new Date().getTime(),
-                annotations: annotations,
-                regions: regions,
-                images: images
+                annotations: annotations
             };
             AnnotationService.save(user);
         }
@@ -144,5 +145,26 @@
             }
             return null;
         }
+
+        function chooseRegion(region) {
+            vm.region = region;
+            vm.region["relations"] = {};
+            loadAnnotations(vm.region);
+
+            $('html, body').animate({
+                scrollTop: $('#annotation').offset().top - 80
+            }, 500);
+        }
+
+        AnnotationService.subscribe($scope, function uploadAnnotationFileSucess() {
+            var userAnnotation = AnnotationService.getUserNotification();
+            if (userAnnotation.annotations !== null) {
+                annotations = userAnnotation.annotations;
+                vm.annotation = annotations[0];
+                injectAnnotationToRegion(vm.region);
+                $('#btn-noti-upload-sucess').click();
+            }
+        });
+
     }
 })();

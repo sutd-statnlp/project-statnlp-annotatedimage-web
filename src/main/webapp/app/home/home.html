@@ -11,7 +11,7 @@
             </li>
             <li class="active" ng-repeat="item in vm.image.objects" ng-click="vm.chooseObject(item.object_id)">
                 <a href="">
-                 
+
                     <span class="text-capitalize"> {{$index + 1}}. {{item.names[0]}}</span>
                 </a>
             </li>
@@ -48,7 +48,7 @@
                         ANNOTAIONS & REGIONS
                         <button ng-click="vm.saveAnnotation()" type="button" class="btn bg-blue waves-effect pull-right" data-step="4" data-intro='Click save or use shortcut Ctrl + S for saving annotation'>SAVE</button>
                     </h2>
-                    
+
                 </div>
                 <div class="body m-region" data-label="">
                     <div class="row clearfix">
@@ -73,32 +73,66 @@
             </div>
         </div>
     </div>
+
+    <div id="gallery" class="row clearfix">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+            <div class="card">
+
+                <div class="header">
+                    <h2>
+                        REGION IMAGES
+                    </h2>
+                </div>
+                <div class="body">
+
+                    <div id="aniimated-gallery" class="list-unstyled row clearfix">
+                        <div ng-repeat="item in vm.imageRegions" class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <a href="{{'./data/images/' + item.region_id + '.jpg'}}" data-sub-html="{{item.phrase}}">
+                                <img class="thumbnail" width="60" height="60" ng-src="{{'./data/images/' + item.region_id + '.jpg'}}">
+                            </a>
+
+                            <span>
+                                <input name="group5" type="radio" id="{{'radio' + $index}}" ng-checked="{{$index == 0 ? 'true' : 'false'}}" class="with-gap radio-col-blue"
+                                    ng-click="vm.chooseRegion(item)" />
+                                <label for="{{'radio' + $index}}">{{item.region_id}}</label>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- #END# Advanced Select -->
     <!-- <div id="upload" class="row clearfix">
         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
             <div class="card">
                 <div class="header">
                     <h2>
-                        IMAGE UPLOAD - DRAG & DROP OR WITH CLICK & CHOOSE
+                        JSON UPLOAD - DRAG & DROP OR WITH CLICK & CHOOSE
                     </h2>
 
                 </div>
-                <div class="body" data-step="6" data-intro='Click or drag image file to upload'>
-                    <form action="/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
+                <div class="body" data-step="6" data-intro='Click or drag json file to upload'>
+                    <form action="#" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
                         <div class="dz-message">
                             <div class="drag-icon-cph">
                                 <i class="material-icons">touch_app</i>
                             </div>
-                            <h3>Drop images here or click to upload.</h3>
+                            <h3>Drop json file here or click to upload.</h3>
 
                         </div>
                         <div class="fallback">
-                            <input name="file" type="file" multiple accept="image/*" />
+                            <input name="file" type="file" accept="image/*" />
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div> -->
+
+    <button id="btn-noti-upload-sucess" class="btn-notification hidden" data-placement-from="top" data-placement-align="right" data-animate-enter="" data-animate-exit=""
+        data-color-name="alert-success" data-text="Upload sucessfully !"></button>
+
 
 </div>
