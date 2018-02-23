@@ -4,14 +4,16 @@
         .module('statnlpApp')
         .factory('AnnotationService', AnnotationService);
 
-    AnnotationService.$inject = ['$resource', 'DataService'];
+    AnnotationService.$inject = ['$rootScope', '$resource', 'DataService'];
 
-    function AnnotationService($resource, DataService) {
+    function AnnotationService($rootScope, $resource, DataService) {
 
         var endPoint = DataService.getEndpoint();
+        var userAnnotation = null;
+
         var resource = $resource('', {}, {
             'getAll': {
-                method: 'GET', 
+                method: 'GET',
                 isArray: true,
                 url: endPoint + '/data/annotations.json'
             },
@@ -19,7 +21,10 @@
 
         var service = {
             getAll: resource.getAll,
-            save: save
+            save: save,
+            upload: upload,
+            subscribe: subscribe,
+            getUserNotification: getUserNotification
         };
         return service;
 
@@ -61,6 +66,30 @@
                     0, 0, 0, 0, 0, false, false, false, false, 0, null);
                 a.dispatchEvent(e);
             }
-        };
+        }
+
+        function subscribe(scope, callback) {
+            var handler = $rootScope.$on('notifying-service-event', callback);
+            scope.$on('$destroy', handler);
+        }
+
+        function notify() {
+            $rootScope.$emit('notifying-service-event');
+        }
+
+        function upload(file) {
+            if (!file)
+                return;
+            var reader = new FileReader();
+            reader.readAsText(file, "UTF-8");
+            reader.onload = function (evt) {
+                userAnnotation = angular.fromJson(evt.target.result);
+                notify();
+            };
+        }
+
+        function getUserNotification() {
+            return userAnnotation;
+        }
     }
 })();
