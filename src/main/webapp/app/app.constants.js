@@ -5,6 +5,6 @@
         .module('statnlpApp')
         .constant('VERSION', "0.0.1-SNAPSHOT")
         .constant('DEBUG_INFO_ENABLED', false)
-        .constant('BUILD_TIMESTAMP', 1519362362205)
+        .constant('BUILD_TIMESTAMP', 1519371012194)
 ;
 })();

@@ -10,15 +10,21 @@ var config = {
 firebase.initializeApp(config);
 
 var globalDatabase = firebase.database();
-var globalUser = null;
+
+var globalUser = {
+    user_name: null,
+    user_email: null,
+    created_time: null,
+    annotations: []
+};
 
 var googleProvider = new firebase.auth.GoogleAuthProvider;
 var facebookProvider = new firebase.auth.FacebookAuthProvider();
 var twitterProvider = new firebase.auth.TwitterAuthProvider();
 
-firebase.auth().onAuthStateChanged(function (t) {
-    t ? globalLoadUserSignIn(t) : globalLoadUserSingOut();
-});
+// firebase.auth().onAuthStateChanged(function (t) {
+//     t ? globalLoadUserSignIn(t) : globalLoadUserSingOut();
+// });
 
 function globalLoadUserSignIn(user) {
     globalUser = user;
