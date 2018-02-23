@@ -3,7 +3,7 @@ $(function () {
         thumbnail: true,
         selector: 'a'
     });
-    $('#aniimated-thumbnials-gallery').lightGallery({
+    $('#aniimated-gallery').lightGallery({
         thumbnail: true,
         selector: 'a'
     });
