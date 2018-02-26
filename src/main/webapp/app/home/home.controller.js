@@ -8,14 +8,14 @@
     HomeController.$inject = ['$scope', '$state', '$ocLazyLoad', 'ImageService', 'RegionService', 'AnnotationService'];
 
     function HomeController($scope, $state, $ocLazyLoad, ImageService, RegionService, AnnotationService) {
-        $ocLazyLoad.load('plugins/dropzone/dropzone.js').then(function () {
-            $ocLazyLoad.load('js/pages/forms/advanced-form-elements.js');
-            $ocLazyLoad.load('js/pages/ui/notifications.js');
-        });
 
         var vm = this;
         vm.saveAnnotation = saveAnnotation;
-        vm.chooseRegion = chooseRegion;
+        vm.getObjectKeys = getObjectKeys;
+        vm.nextRole = nextRole;
+        vm.prevRole = prevRole;
+        vm.roleIndex = 0;
+
         var regions = [];
         var annotations = [];
         var images = [];
@@ -96,15 +96,7 @@
                     item['relations'][key] = relations[key];
                 }
             }
-            $('#img-region').elevateZoom({
-                zoomWindowWidth: 200,
-                zoomWindowHeight: 240,
-                lensFadeIn: 500,
-                lensFadeOut: 500,
-                scrollZoom: true,
-                zoomType: "inner",
-                cursor: "crosshair"
-            });
+
         }
 
         function getObjectNameById(id) {
@@ -132,7 +124,7 @@
         }
 
         function chooseObject(objectId) {
-            var label = $('.m-region').attr('data-label');
+            var label = $('#m-region-role').text();
             vm.region['relations'][label] = objectId;
             vm.annotation.relationships[vm.region.relationshipIndex].region_relations[label] = objectId;
         }
@@ -146,25 +138,23 @@
             return null;
         }
 
-        function chooseRegion(region) {
-            vm.region = region;
-            vm.region["relations"] = {};
-            loadAnnotations(vm.region);
 
-            $('html, body').animate({
-                scrollTop: $('#annotation').offset().top - 80
-            }, 500);
+        function getObjectKeys(object) {
+            if (!object)
+                return;
+            return Object.keys(object);
         }
 
-        AnnotationService.subscribe($scope, function uploadAnnotationFileSucess() {
-            var userAnnotation = AnnotationService.getUserNotification();
-            if (userAnnotation.annotations !== null) {
-                annotations = userAnnotation.annotations;
-                vm.annotation = annotations[0];
-                injectAnnotationToRegion(vm.region);
-                $('#btn-noti-upload-sucess').click();
-            }
-        });
+        function nextRole() {
+            if (vm.roleIndex === getObjectKeys(vm.region.relations).length - 1)
+                return;
+            vm.roleIndex++;
+        }
 
+        function prevRole() {
+            if (vm.roleIndex === 0)
+                return;
+            vm.roleIndex--;
+        }
     }
 })();

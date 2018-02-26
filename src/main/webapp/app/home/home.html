@@ -1,40 +1,50 @@
-<aside class="rightsidebar m-sidenav">
-
-    <!-- Menu -->
-    <div class="menu">
-        <ul class="list m-objects">
-            <li data-step="1" data-intro='Choose the object for the label'>
-                <!-- <a href="/">
-                            <i class="material-icons">home</i>
-                            <span>Home</span>
-                        </a> -->
-            </li>
-            <li class="active" ng-repeat="item in vm.image.objects" ng-click="vm.chooseObject(item.object_id)">
-                <a href="">
-
-                    <span class="text-capitalize"> {{$index + 1}}. {{item.names[0]}}</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <!-- #Menu -->
-</aside>
-
 <div class="container-fluid">
-    <!-- Advanced Select -->
-    <div id="annotation" class="row clearfix">
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <div class="card m-region-image">
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+
                 <div class="header">
                     <h2>
-                        REGION IMAGE
+                        <strong>Select most suitable answer for the question using given list</strong>
                     </h2>
                 </div>
-                <div class="body" data-step="5" data-intro='Click to view image in full-screen mode or hover mouse on image and scroll to zoom'>
+                <div class="body m-guideline">
+
+                    <p class="m-header">
+                        <b>Guidelines: </b>
+                    </p>
+
+                    <p>
+                        1. Focus only on the highlighted region of the image
+                    </p>
+                    <p>
+                        2. Region caption partly explains the action
+                    </p>
+                    <p>
+                        3. Refer the action definition and example if the meaning/usage is not clear
+                    </p>
+                    <p>
+                        4. Select an entity from the list
+                        <b>if and only if</b> that is the correct answer for the question
+                    </p>
+                    <p>
+                        5. Select "
+                        <b>Not visible in the image</b>", if that question cannot be answered looking at the image
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Advanced Select -->
+    <div id="annotation" class="row clearfix">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="card">
+                <div class="body m-region-image" data-step="5" data-intro='Click to view image in full-screen mode or hover mouse on image and scroll to zoom'>
                     <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <a href="{{'./data/images/' + vm.region.region_id + '.jpg'}}" data-sub-html="{{vm.region.phrase}}" data-zoom-image="{{'./data/images/' + vm.region.region_id + '.jpg'}}">
-                                <img id="img-region" class="img-responsive" width="{{vm.region.width}}" height="{{vm.region.height}}" ng-src="{{'./data/images/' + vm.region.region_id + '.jpg'}}">
+                                <img id="img-region" class="img-responsive pull-right" width="{{vm.region.width}}" height="{{vm.region.height}}" ng-src="{{'./data/images/' + vm.region.region_id + '.jpg'}}">
                             </a>
                         </div>
                     </div>
@@ -43,29 +53,35 @@
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <div class="card">
-                <div class="header">
-                    <h2>
-                        ANNOTAIONS & REGIONS
-                        <button ng-click="vm.saveAnnotation()" type="button" class="btn bg-blue waves-effect pull-right" data-step="4" data-intro='Click save or use shortcut Ctrl + S for saving annotation'>SAVE</button>
-                    </h2>
-
-                </div>
                 <div class="body m-region" data-label="">
                     <div class="row clearfix">
                         <div class="col-md-12">
                             <p>
-                                Verb:
-                                <b class="col-blue">{{vm.region.predicate}}</b>
+                                <b>
+                                    <i>Region caption: </i>
+                                </b>
+                                <br> {{vm.region.phrase}}
                             </p>
                             <p>
-                                Description:
-                                <b class="col-blue">{{vm.region.phrase}}</b>
+                                Action happening in the region:
+                                <br> &nbsp;&nbsp;
+                                <b>{{vm.region.predicate}}
+                                    <i class="material-icons">help</i>
+                                </b>
                             </p>
-                            <br>
-                            <div ng-repeat="(key,value) in vm.region.relations" class="col-md-6 m-label">
-                                <b>{{key}}</b>
-                                <span class="label label-primary">{{vm.getObjectNameById(value)}}</span>
-                            </div>
+                            <p>
+                                What is the
+                                <b id="m-region-role">{{vm.getObjectKeys(vm.region.relations)[vm.roleIndex]}}</b>
+                                <i class="material-icons">help</i> in the region?
+                                <br>
+                                <select ng-change="vm.chooseObject(vm.chosenEntity)" ng-model="vm.chosenEntity">
+                                    <option value="" disabled selected>Entity List</option>
+                                    <option value="0">Not visible in the image</option>
+                                    <option value="1213121">Shoes</option>
+                                    <option value="3212311">Pant</option>
+                                </select>
+                            </p>
+
                         </div>
                     </div>
 
@@ -73,66 +89,52 @@
             </div>
         </div>
     </div>
-
-    <div id="gallery" class="row clearfix">
-        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
 
-                <div class="header">
-                    <h2>
-                        REGION IMAGES
-                    </h2>
-                </div>
-                <div class="body" data-step="6" data-intro='Choose a region image'>
+                <div class="body m-meaning m-l-40 m-r-40">
 
-                    <div id="aniimated-gallery" class="list-unstyled row clearfix">
-                        <div ng-repeat="item in vm.imageRegions" class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                            <a href="{{'./data/images/' + item.region_id + '.jpg'}}" data-sub-html="{{item.phrase}}">
-                                <img class="thumbnail" width="60" height="60" ng-src="{{'./data/images/' + item.region_id + '.jpg'}}">
-                            </a>
-
-                            <span>
-                                <input name="group5" type="radio" id="{{'radio' + $index}}" ng-checked="{{$index == 0 ? 'true' : 'false'}}" class="with-gap radio-col-blue"
-                                    ng-click="vm.chooseRegion(item)" />
-                                <label for="{{'radio' + $index}}">{{item.region_id}}</label>
-                            </span>
+                    <p>
+                        <b>
+                            <i class="material-icons">help</i> Meaning: </b>
+                    </p>
+                    <div class="m-list">
+                        <ul>
+                            <li>Hold: grasp, carry, or support with one's arms or hands </li>
+                            <li>Thing held: The object/person which is being held by someone </li>
+                        </ul>
+                    </div>
+                    <p>
+                    </p>
+                    Example
+                    <p>Format: An
+                        <b class="col-blue text-uppercase">agent</b> holds
+                        <b class="col-green text-uppercase">thing held</b> using
+                        <b class="col-orange text-uppercase">supporter</b>
+                        <br> Sample: An
+                        <b class="col-blue">man</b> is holding a
+                        <b class="col-green">baby</b> in his
+                        <b class="col-orange">arm</b>
+                    </p>
+                    <div class="m-meaning-footer p-t-20">
+                        <div class="pull-right">
+                            <button type="button" class="btn bg-grey waves-effect m-btn-role m-r-20" ng-click="vm.prevRole()">Previous</button>
+                            <button type="button" class="btn bg-grey waves-effect m-btn-role" ng-click="vm.nextRole()">Next</button>
                         </div>
+
+                        <p class="m-image-count">
+                            2/10 images
+                        </p>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- #END# Advanced Select -->
-    <!-- <div id="upload" class="row clearfix">
-        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-            <div class="card">
-                <div class="header">
-                    <h2>
-                        JSON UPLOAD - DRAG & DROP OR WITH CLICK & CHOOSE
-                    </h2>
-
-                </div>
-                <div class="body" data-step="6" data-intro='Click or drag json file to upload'>
-                    <form action="#" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
-                        <div class="dz-message">
-                            <div class="drag-icon-cph">
-                                <i class="material-icons">touch_app</i>
-                            </div>
-                            <h3>Drop json file here or click to upload.</h3>
-
-                        </div>
-                        <div class="fallback">
-                            <input name="file" type="file" accept="image/*" />
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-    <button id="btn-noti-upload-sucess" class="btn-notification hidden" data-placement-from="top" data-placement-align="right" data-animate-enter="" data-animate-exit=""
-        data-color-name="alert-success" data-text="Upload sucessfully !"></button>
+    <button id="btn-noti-upload-sucess" class="btn-notification hidden" data-placement-from="top" data-placement-align="right"
+        data-animate-enter="" data-animate-exit="" data-color-name="alert-success" data-text="Upload sucessfully !"></button>
 
 
 </div>

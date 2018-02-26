@@ -17,13 +17,38 @@
   justify-content: center !important; }
 
 .m-content {
-  margin-right: 200px !important; }
+  margin-top: 10px !important;
+  margin-left: 10px !important;
+  margin-right: 10px !important; }
 
 .dropdown-menu {
   height: 180px !important; }
 
 .m-region-image {
-  height: 360px; }
+  height: 300px; }
 
 .m-btn-social {
   width: 200px; }
+
+.m-guideline {
+  font-size: 18px !important; }
+  .m-guideline .m-header {
+    text-indent: 40px; }
+  .m-guideline p {
+    text-indent: 80px; }
+
+.m-region {
+  height: 300px;
+  font-size: 20px !important; }
+
+.m-meaning {
+  font-size: 16px !important; }
+  .m-meaning .m-list {
+    border-style: solid;
+    padding-top: 5px; }
+  .m-meaning .m-btn-role {
+    width: 120px; }
+
+.card {
+  margin: 0px;
+  margin-bottom: 10px; }
