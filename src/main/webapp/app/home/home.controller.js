@@ -149,12 +149,19 @@
             if (vm.roleIndex === getObjectKeys(vm.region.relations).length - 1)
                 return;
             vm.roleIndex++;
+            loadDefaultEntity();
         }
 
         function prevRole() {
             if (vm.roleIndex === 0)
                 return;
             vm.roleIndex--;
+            loadDefaultEntity();
+        }
+
+        function loadDefaultEntity() {
+            $('.filter-option').html('&nbsp;');
+            vm.chosenEntity = null;
         }
         
     }
