@@ -156,5 +156,6 @@
                 return;
             vm.roleIndex--;
         }
+        
     }
 })();

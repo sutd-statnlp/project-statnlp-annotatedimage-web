@@ -5372,8 +5372,13 @@ section.content {
 }
 
 .bootstrap-select .dropdown-menu li.selected a {
-  background-color: #eee !important;
-  color: #555 !important;
+  background-color: #2A93F0 !important;
+  color: #fff !important;
+}
+
+.bootstrap-select .dropdown-menu li a:hover {
+  background-color: #2A93F0 !important;
+  color: #fff !important;
 }
 
 .bootstrap-select .dropdown-menu .active a {

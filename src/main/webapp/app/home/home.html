@@ -75,7 +75,7 @@
                                 <i class="material-icons">help</i> in the region?
                                 <br>
                                 <select ng-change="vm.chooseObject(vm.chosenEntity)" ng-model="vm.chosenEntity">
-                                    <option value="" disabled selected>Entity List</option>
+                                    <option value="" disabled selected>&nbsp; </option>
                                     <option value="0">Not visible in the image</option>
                                     <option value="1213121">Shoes</option>
                                     <option value="3212311">Pant</option>
@@ -119,8 +119,8 @@
                     </p>
                     <div class="m-meaning-footer p-t-20">
                         <div class="pull-right">
-                            <button type="button" class="btn bg-grey waves-effect m-btn-role m-r-20" ng-click="vm.prevRole()">Previous</button>
-                            <button type="button" class="btn bg-grey waves-effect m-btn-role" ng-click="vm.nextRole()">Next</button>
+                            <button type="button" ng-disabled="!vm.chosenEntity" class="btn btn-primary waves-effect m-btn-role m-r-20" ng-click="vm.prevRole()">Previous</button>
+                            <button type="button" ng-disabled="!vm.chosenEntity" class="btn btn-primary waves-effect m-btn-role" ng-click="vm.nextRole()">Next</button>
                         </div>
 
                         <p class="m-image-count">
