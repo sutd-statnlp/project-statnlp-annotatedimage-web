@@ -5376,6 +5376,10 @@ section.content {
   color: #fff !important;
 }
 
+.bootstrap-select .dropdown-menu li.disabled a {
+  display: none;
+}
+
 .bootstrap-select .dropdown-menu li a:hover {
   background-color: #2A93F0 !important;
   color: #fff !important;
