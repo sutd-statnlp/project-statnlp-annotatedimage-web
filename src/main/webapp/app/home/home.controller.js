@@ -169,6 +169,14 @@
             $('.filter-option').html('&nbsp;');
             vm.chosenEntity = null;
         }
+
+        setProgress(2);
+
+        function setProgress(num){
+            $('.progress .progress-bar').css( 'width',  num*10 + '%');
+        }
+
+       
         
     }
 })();

@@ -1,4 +1,4 @@
-<aside id="leftsidebar" class="sidebar m-sidenav m-sidenav-left">
+<aside id="leftsidebar" class="sidebar m-sidenav">
     <!-- Menu -->
     <div class="menu">
         <ul class="list">
@@ -9,7 +9,8 @@
             </li>
             <li class="{{$index == vm.roleIndex ? 'active' : ''}}" ng-repeat="(key, value) in vm.region.relations">
                 <a>
-                    <span>{{key}}: {{vm.getObjectNameById(value)}}</span>
+                    <span>{{key}}:</span>
+                    <span class="label bg-orange">{{vm.getObjectNameById(value)}}</span>
                 </a>
             </li>
         </ul>
@@ -70,7 +71,7 @@
                 <div class="body m-region-image" data-step="5" data-intro='Click to view image in full-screen mode or hover mouse on image and scroll to zoom'>
                     <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <a href="{{'./data/images/region/' + vm.image.image_id + '/' + vm.region.region_id + '.png'}}" data-sub-html="{{vm.region.phrase}}" >
+                            <a href="{{'./data/images/region/' + vm.image.image_id + '/' + vm.region.region_id + '.png'}}" data-sub-html="{{vm.region.phrase}}">
                                 <img id="img-region" class="img-responsive pull-right" ng-src="{{'./data/images/region/' + vm.image.image_id + '/' + vm.region.region_id + '.png'}}">
                             </a>
                         </div>
@@ -133,17 +134,20 @@
                     </div>
                     <p>
                     </p>
-                    Example
-                    <p>Format: An
-                        <b class="col-blue text-uppercase">agent</b> holds
-                        <b class="col-green text-uppercase">thing held</b> using
-                        <b class="col-orange text-uppercase">supporter</b>
-                        <br> Sample: An
-                        <b class="col-blue">man</b> is holding a
-                        <b class="col-green">baby</b> in his
-                        <b class="col-orange">arm</b>
-                    </p>
+                    Example Format: An
+                    <b class="col-blue text-uppercase">agent</b> holds
+                    <b class="col-green text-uppercase">thing held</b> using
+                    <b class="col-orange text-uppercase">supporter</b>
+                    <br> Sample: An
+                    <b class="col-blue">man</b> is holding a
+                    <b class="col-green">baby</b> in his
+                    <b class="col-orange">arm</b>
+
                     <div class="m-meaning-footer p-t-20">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="1" aria-valuemax="10" >
+                            </div>
+                        </div>
                         <div class="pull-right">
                             <button type="button" ng-disabled="!vm.chosenEntity" class="btn btn-primary waves-effect m-btn-role m-r-20" ng-click="vm.prevRole()">Previous</button>
                             <button type="button" ng-disabled="!vm.chosenEntity" class="btn btn-primary waves-effect m-btn-role" ng-click="vm.nextRole()">Next</button>

@@ -5,10 +5,7 @@
   background-color: #B3E5FC; }
 
 .m-sidenav {
-  width: 198px; }
-
-.m-sidenav-left {
-  width: 208px; }
+  width: 240px; }
 
 .justify-content-center {
   text-align: center;
@@ -18,7 +15,7 @@
 
 .m-content {
   margin-top: 0px !important;
-  margin-left: 200px !important;
+  margin-left: 240px !important;
   margin-right: 0px !important; }
 
 .dropdown-menu {
@@ -39,15 +36,14 @@
 
 .m-region {
   height: 300px;
-  font-size: 20px !important; }
+  font-size: 18px !important; }
 
-.m-meaning {
-  font-size: 16px !important; }
-  .m-meaning .m-list {
-    border-style: solid;
-    padding-top: 5px; }
-  .m-meaning .m-btn-role {
-    width: 120px; }
+.m-meaning .m-list {
+  border-style: solid;
+  padding-top: 5px; }
+
+.m-meaning .m-btn-role {
+  width: 120px; }
 
 .card {
   margin: 0px;
@@ -60,5 +56,9 @@
   background-color: #2A93F0 !important; }
   #leftsidebar ul li.active span {
     color: white !important; }
-  #leftsidebar ul li.active i {
-    color: white !important; }
+
+#leftsidebar ul li span.label {
+  color: white !important; }
+
+.m-meaning-footer .progress {
+  height: 10px; }
