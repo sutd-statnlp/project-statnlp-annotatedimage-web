@@ -10194,9 +10194,8 @@ fieldset[disabled] .form-control {
   width: 300px;
   overflow: hidden;
   display: inline-block;
-  height: calc(100vh - 70px);
+  height: 100vh;
   position: fixed;
-  top: 70px;
   left: 0;
   -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);

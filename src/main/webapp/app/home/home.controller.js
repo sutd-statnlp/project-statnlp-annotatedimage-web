@@ -20,6 +20,7 @@
         var annotations = [];
         var images = [];
         vm.imageRegions = [];
+        var regionIndex = 0;
         vm.annotation = {
             relationships: []
         };
@@ -27,7 +28,7 @@
             region_id: 'default'
         };
         vm.image = {
-            image_id: null,
+            image_id: 1,
             image_rl: null,
             objects: []
         };
@@ -56,7 +57,7 @@
                 vm.imageRegions = getRegionsByImageId(image.image_id);
                 $ocLazyLoad.load('js/pages/medias/image-gallery.js');
 
-                vm.region = vm.imageRegions[0];
+                vm.region = vm.imageRegions[regionIndex];
                 vm.region["relations"] = {};
                 loadAnnotations(vm.region);
             }
@@ -125,7 +126,7 @@
 
         function chooseObject(objectId) {
             var label = $('#m-region-role').text();
-            vm.region['relations'][label] = objectId;
+            vm.region['relations'][label] = parseInt(objectId);
             vm.annotation.relationships[vm.region.relationshipIndex].region_relations[label] = objectId;
         }
 
@@ -146,8 +147,13 @@
         }
 
         function nextRole() {
-            if (vm.roleIndex === getObjectKeys(vm.region.relations).length - 1)
-                return;
+            if (vm.roleIndex === getObjectKeys(vm.region.relations).length - 1) {
+                regionIndex++;
+                vm.region = vm.imageRegions[regionIndex];
+                vm.region["relations"] = {};
+                injectAnnotationToRegion(vm.region);
+                vm.roleIndex = -1;
+            }
             vm.roleIndex++;
             loadDefaultEntity();
         }

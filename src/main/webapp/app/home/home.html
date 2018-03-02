@@ -1,4 +1,31 @@
-<div class="container-fluid">
+<aside id="leftsidebar" class="sidebar m-sidenav m-sidenav-left">
+    <!-- Menu -->
+    <div class="menu">
+        <ul class="list">
+            <li>
+                <a>
+                    <h5>Roles in this region: </h5>
+                </a>
+            </li>
+            <li class="{{$index == vm.roleIndex ? 'active' : ''}}" ng-repeat="(key, value) in vm.region.relations">
+                <a>
+                    <span>{{key}}: {{vm.getObjectNameById(value)}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- #Menu -->
+    <div class="legal">
+        <div class="copyright">
+            <a href="javascript:void(0);">STATNLP Annotation</a> &copy; 2018
+        </div>
+        <div class="version">
+            <b>Version: </b> 2.0.0-beta
+        </div>
+    </div>
+</aside>
+
+<div class="container-fluid m-home-body">
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
@@ -43,8 +70,8 @@
                 <div class="body m-region-image" data-step="5" data-intro='Click to view image in full-screen mode or hover mouse on image and scroll to zoom'>
                     <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <a href="{{'./data/images/' + vm.region.region_id + '.jpg'}}" data-sub-html="{{vm.region.phrase}}" data-zoom-image="{{'./data/images/' + vm.region.region_id + '.jpg'}}">
-                                <img id="img-region" class="img-responsive pull-right" width="{{vm.region.width}}" height="{{vm.region.height}}" ng-src="{{'./data/images/' + vm.region.region_id + '.jpg'}}">
+                            <a href="{{'./data/images/region/' + vm.image.image_id + '/' + vm.region.region_id + '.png'}}" data-sub-html="{{vm.region.phrase}}" >
+                                <img id="img-region" class="img-responsive pull-right" ng-src="{{'./data/images/region/' + vm.image.image_id + '/' + vm.region.region_id + '.png'}}">
                             </a>
                         </div>
                     </div>
@@ -77,9 +104,7 @@
                                 <select ng-change="vm.chooseObject(vm.chosenEntity)" ng-model="vm.chosenEntity">
                                     <option value="" disabled selected>&nbsp; </option>
                                     <option value="0">Not visible in the image</option>
-                                    <option value="1213121">Shoes</option>
-                                    <option value="3212311">Pant</option>
-                                    <option value="3332311">Tree</option>
+                                    <option value="{{item.object_id}}" ng-repeat="item in vm.image.objects">{{item.names[0]}}</option>
                                 </select>
                             </p>
 
