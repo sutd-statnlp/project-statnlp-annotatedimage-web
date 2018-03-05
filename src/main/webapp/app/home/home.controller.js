@@ -5,22 +5,24 @@
         .module('statnlpApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', '$state', '$ocLazyLoad', 'ImageService', 'RegionService', 'AnnotationService'];
+    HomeController.$inject = ['$scope', '$state', '$ocLazyLoad', 'ImageService', 'RegionService', 'AnnotationService','DataService'];
 
-    function HomeController($scope, $state, $ocLazyLoad, ImageService, RegionService, AnnotationService) {
+    function HomeController($scope, $state, $ocLazyLoad, ImageService, RegionService, AnnotationService,DataService) {
 
         var vm = this;
+        var regions = [];
+        var annotations = [];
+        var images = [];
+
         vm.saveAnnotation = saveAnnotation;
         vm.getObjectKeys = getObjectKeys;
         vm.nextRole = nextRole;
         vm.prevRole = prevRole;
+        vm.chooseRole = chooseRole;
         vm.roleIndex = 0;
-
-        var regions = [];
-        var annotations = [];
-        var images = [];
+        vm.uploadFile = uploadFile;
         vm.imageRegions = [];
-        var regionIndex = 0;
+        vm.regionIndex = 0;
         vm.annotation = {
             relationships: []
         };
@@ -57,7 +59,7 @@
                 vm.imageRegions = getRegionsByImageId(image.image_id);
                 $ocLazyLoad.load('js/pages/medias/image-gallery.js');
 
-                vm.region = vm.imageRegions[regionIndex];
+                vm.region = vm.imageRegions[vm.regionIndex];
                 vm.region["relations"] = {};
                 loadAnnotations(vm.region);
             }
@@ -75,8 +77,8 @@
 
         function saveAnnotation() {
             var user = {
-                user_name: globalUser.displayName,
-                user_email: globalUser.email,
+                // user_name: globalUser.displayName,
+                // user_email: globalUser.email,
                 created_time: new Date().getTime(),
                 annotations: annotations
             };
@@ -97,7 +99,7 @@
                     item['relations'][key] = relations[key];
                 }
             }
-
+            loadProgress();
         }
 
         function getObjectNameById(id) {
@@ -148,8 +150,8 @@
 
         function nextRole() {
             if (vm.roleIndex === getObjectKeys(vm.region.relations).length - 1) {
-                regionIndex++;
-                vm.region = vm.imageRegions[regionIndex];
+                vm.regionIndex++;
+                vm.region = vm.imageRegions[vm.regionIndex];
                 vm.region["relations"] = {};
                 injectAnnotationToRegion(vm.region);
                 vm.roleIndex = -1;
@@ -165,18 +167,32 @@
             loadDefaultEntity();
         }
 
+        function chooseRole(roleIndex) {
+            vm.roleIndex = roleIndex;
+            loadDefaultEntity();
+        }
+
         function loadDefaultEntity() {
             $('.filter-option').html('&nbsp;');
             vm.chosenEntity = null;
+            loadProgress();
         }
 
-        setProgress(2);
-
-        function setProgress(num){
-            $('.progress .progress-bar').css( 'width',  num*10 + '%');
+        function loadProgress() {
+            var percent = (vm.regionIndex + 1) * 100 / vm.imageRegions.length;
+            $('.progress .progress-bar').css('width', percent + '%');
         }
 
-       
-        
+        function uploadFile(file) {
+            AnnotationService.upload(file);
+        }
+
+        AnnotationService.subscribe($scope, function uploadFileSuccess() {
+
+            var resultData = AnnotationService.getFileData();
+            if (resultData.length <= 0)
+                return;
+            DataService.saveJson(resultData,'data.json');
+        });
     }
 })();

@@ -1,0 +1,9 @@
+,region_id,predicate,predicate_def,synset,caption,example_mapping,roles_example,role0,role1,role2,role3,role4,role5,role6,role7,role8,role9,role10,role11,role12,role13,role14,role15,role16,role17,value0,value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,value11,value12,value13,value14,value15,value16,value17
+0,1683,hold,"keep in a certain state, position, or activity; e.g., ""keep clean""",hold.v.01,man is holding his chin,"{'1': 'thing held', '2': 'benefactive', '3': 'secondary attribute of arg1', '0': 'holder'}","<example name=""just transitive"">
+  <text>
+    WR Grace &amp; Co holds a 83.4% interest in the company.
+  </text>
+  <arg n=""0"">WR Grace &amp; Co</arg>
+  <rel>holds</rel>
+  <arg n=""1"">a 83.4% interest in the company</arg>
+</example>",thing waited for,place,secondary attribte of arg1,extent,adverbial modification,restrainer,holder,with whom,thing held,attribte of arg1,benefactive,manner,thing being restrained,time,wait-er (not waiter,condctor,thing lasting,holder / thinker,,,,,,,3798576,,1058541,,,,,,,,,

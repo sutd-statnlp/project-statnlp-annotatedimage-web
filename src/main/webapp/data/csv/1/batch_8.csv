@@ -1,0 +1,106 @@
+,region_id,predicate,predicate_def,synset,caption,example_mapping,roles_example,role0,role1,role2,role3,role4,role5,role6,role7,value0,value1,value2,value3,value4,value5,value6,value7
+0,1736,raise,raise the level or amount of something,raise.v.01,man has raised his arm,"{'2': 'EXT, amount risen', '0': 'Agent', '1': 'Logical subject, patient, thing rising', 'M': 'Medium', '4': 'End point', '3': 'Start point'}","<example name=""straight transitive"">
+  <text>
+    The securities will raise about $10 billion in cash.
+  </text>
+  <arg n=""0"">The securities</arg>
+  <rel>raise</rel>
+  <arg n=""1"">about $10 billion in cash</arg>
+</example>",agent,logical sbject,manner,money,giver of money,place,ext,getter of money,3798576,1058546,,,,,,
+1,1635,raise,raise the level or amount of something,raise.v.01,he has raised his chin,"{'2': 'EXT, amount risen', '0': 'Agent', '1': 'Logical subject, patient, thing rising', 'M': 'Medium', '4': 'End point', '3': 'Start point'}","<example name=""straight transitive"">
+  <text>
+    The securities will raise about $10 billion in cash.
+  </text>
+  <arg n=""0"">The securities</arg>
+  <rel>raise</rel>
+  <arg n=""1"">about $10 billion in cash</arg>
+</example>",agent,logical sbject,manner,money,giver of money,place,ext,getter of money,,1058541,,,,,,
+2,1533,wear,be dressed in,wear.v.01,A man wearing a gray jacket and gray pants. ,"{'1': 'clothing', '0': 'wearer'}","<example name=""basic"">
+<inflection aspect=""progressive"" form=""participle"" person=""third"" tense=""present"" voice=""active"" />
+<text>
+     Sotheby's, she says, is ``wearing both hats.''
+</text>
+        <arg n=""0"">Sotheby's</arg>
+        <rel>wearing</rel>
+        <arg n=""1"">both hats</arg>
+</example>",thing worn ot,place,thing disappearing,time,manner,wearer,adverbial modification,clothing,,,,,,3798576,,1058530
+3,1682,wear,be dressed in,wear.v.01,man is wearing red tshirt,"{'1': 'clothing', '0': 'wearer'}","<example name=""basic"">
+<inflection aspect=""progressive"" form=""participle"" person=""third"" tense=""present"" voice=""active"" />
+<text>
+     Sotheby's, she says, is ``wearing both hats.''
+</text>
+        <arg n=""0"">Sotheby's</arg>
+        <rel>wearing</rel>
+        <arg n=""1"">both hats</arg>
+</example>",thing worn ot,place,thing disappearing,time,manner,wearer,adverbial modification,clothing,,,,,,3798577,,1058511
+4,1732,wear,be dressed in,wear.v.01,man is wearing brown shoes,"{'1': 'clothing', '0': 'wearer'}","<example name=""basic"">
+<inflection aspect=""progressive"" form=""participle"" person=""third"" tense=""present"" voice=""active"" />
+<text>
+     Sotheby's, she says, is ``wearing both hats.''
+</text>
+        <arg n=""0"">Sotheby's</arg>
+        <rel>wearing</rel>
+        <arg n=""1"">both hats</arg>
+</example>",thing worn ot,place,thing disappearing,time,manner,wearer,adverbial modification,clothing,,,,,,3798576,,1058525
+5,1783,wear,be dressed in,wear.v.01,man wearing a grey shirt,"{'1': 'clothing', '0': 'wearer'}","<example name=""basic"">
+<inflection aspect=""progressive"" form=""participle"" person=""third"" tense=""present"" voice=""active"" />
+<text>
+     Sotheby's, she says, is ``wearing both hats.''
+</text>
+        <arg n=""0"">Sotheby's</arg>
+        <rel>wearing</rel>
+        <arg n=""1"">both hats</arg>
+</example>",thing worn ot,place,thing disappearing,time,manner,wearer,adverbial modification,clothing,,,,,,3798576,,1058547
+6,1882,wear,be dressed in,wear.v.01,the man wears a red t shirt ,"{'1': 'clothing', '0': 'wearer'}","<example name=""basic"">
+<inflection aspect=""progressive"" form=""participle"" person=""third"" tense=""present"" voice=""active"" />
+<text>
+     Sotheby's, she says, is ``wearing both hats.''
+</text>
+        <arg n=""0"">Sotheby's</arg>
+        <rel>wearing</rel>
+        <arg n=""1"">both hats</arg>
+</example>",thing worn ot,place,thing disappearing,time,manner,wearer,adverbial modification,clothing,,,,,,3798577,,1058549
+7,1884,wear,be dressed in,wear.v.01,the man wears grey pants,"{'1': 'clothing', '0': 'wearer'}","<example name=""basic"">
+<inflection aspect=""progressive"" form=""participle"" person=""third"" tense=""present"" voice=""active"" />
+<text>
+     Sotheby's, she says, is ``wearing both hats.''
+</text>
+        <arg n=""0"">Sotheby's</arg>
+        <rel>wearing</rel>
+        <arg n=""1"">both hats</arg>
+</example>",thing worn ot,place,thing disappearing,time,manner,wearer,adverbial modification,clothing,,,,,,3798576,,1058531
+8,1934,line,cover the interior of,line.v.02,trees line up the street,"{'1': 'things in a line', '0': 'causative agent'}","<example name=""ergative"">
+<inflection aspect=""ns"" form=""full"" person=""ns"" tense=""present"" voice=""active"" /><text>
+     At a recent trade show, convention-goers lined up to view a new
+     Specialized bike frame that weighs just 2.7 pounds -- a pound
+     less than the lightest mountain-bike frame on the market. 
+</text>
+        <arg f=""LOC"" n=""M"">At a recent trade show</arg>
+        <arg n=""1"">convention-goers</arg>
+        <rel>[ lined] [ up]</rel>
+        <arg f=""PNC"" n=""M"">to view a new Specialized bike frame that
+        weighs just 2.7 pounds -- a pound less than the lightest
+        mountain-bike frame on the market </arg> 
+</example>",instrment,place,casative agent,manner,thing lined,things in a line,proper non component,agent only!,,,1058549,,,1058539,,
+9,1982,line,cover the interior of,line.v.02,trees line the sidewalk,"{'1': 'things in a line', '0': 'causative agent'}","<example name=""ergative"">
+<inflection aspect=""ns"" form=""full"" person=""ns"" tense=""present"" voice=""active"" /><text>
+     At a recent trade show, convention-goers lined up to view a new
+     Specialized bike frame that weighs just 2.7 pounds -- a pound
+     less than the lightest mountain-bike frame on the market. 
+</text>
+        <arg f=""LOC"" n=""M"">At a recent trade show</arg>
+        <arg n=""1"">convention-goers</arg>
+        <rel>[ lined] [ up]</rel>
+        <arg f=""PNC"" n=""M"">to view a new Specialized bike frame that
+        weighs just 2.7 pounds -- a pound less than the lightest
+        mountain-bike frame on the market </arg> 
+</example>",instrment,place,casative agent,manner,thing lined,things in a line,proper non component,agent only!,,,1058549,,,1058534,,
+10,1532,dress,put on clothes,dress.v.01,A man dressed in a red shirt and black pants. ,"{'1': 'person wearing clothes', '2': 'attribute', '0': 'person putting on clothes'}","<example name=""intransitive"">
+<inflection aspect=""ns"" form=""full"" person=""ns"" tense=""present"" voice=""active"" />
+<text>
+ `` If I go in there as I normally dress , they 'd ask , ` Who [*T*-1] is this hippie ? ' ''
+</text>
+	<arg n=""0"">I</arg>
+	<arg f=""MNR"" n=""M"">normally</arg>
+	<rel>dress</rel>
+</example>",entity dressed p,person ptting on clothes,place,attribte,manner,adverbial modification,person wearing clothes,proper non component,,,,in 1058511,,,3798577,

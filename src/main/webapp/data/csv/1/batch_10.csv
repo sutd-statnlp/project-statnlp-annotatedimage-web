@@ -1,0 +1,11 @@
+,region_id,predicate,predicate_def,synset,caption,example_mapping,roles_example,role0,role1,role2,role3,role4,role5,role6,role7,role8,role9,value0,value1,value2,value3,value4,value5,value6,value7,value8,value9
+0,2285,paint,apply paint to; coat with paint,paint.v.02,clock is painted green,"{'1': 'art', '2': 'benefactive', '0': 'artist'}","<example name=""intransitive verse"">
+<inflection aspect=""ns"" form=""full"" person=""ns"" tense=""present"" voice=""active"" /><text>
+      With lipsticks, liners, lotions and creams,/
+      There are still beauty plans left to tackle:/
+      But as the years go by, it seems/
+      That before I paint, I should spackle.
+</text>
+        <arg n=""0"">I</arg>
+        <rel>paint</rel>
+</example>",srface,time,agent,art,manner,explicit mention of paint,adverbial modification,artist,place,benefactive,,,,1058498,,,,,,

@@ -46,7 +46,7 @@
             });
         });
 
-        $('#btn-signout').click(globalSignOut);
+        // $('#btn-signout').click(globalSignOut);
 
         function upload(file) {
             AnnotationService.upload(file);

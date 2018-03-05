@@ -5,7 +5,7 @@
   background-color: #B3E5FC; }
 
 .m-sidenav {
-  width: 240px; }
+  width: 320px; }
 
 .justify-content-center {
   text-align: center;
@@ -15,7 +15,7 @@
 
 .m-content {
   margin-top: 0px !important;
-  margin-left: 240px !important;
+  margin-left: 320px !important;
   margin-right: 0px !important; }
 
 .dropdown-menu {
@@ -59,6 +59,14 @@
 
 #leftsidebar ul li span.label {
   color: white !important; }
+
+#leftsidebar ul li i.pull-right {
+  color: white !important;
+  margin-top: 0px; }
+
+#leftsidebar ul li .m-col {
+  padding: 0px !important;
+  margin: 0px !important; }
 
 .m-meaning-footer .progress {
   height: 10px; }
