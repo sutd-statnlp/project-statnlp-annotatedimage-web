@@ -20,7 +20,6 @@
         vm.prevRole = prevRole;
         vm.chooseRole = chooseRole;
         vm.roleIndex = 0;
-        vm.uploadFile = uploadFile;
         vm.imageRegions = [];
         vm.regionIndex = 0;
         vm.annotation = {
@@ -183,16 +182,5 @@
             $('.progress .progress-bar').css('width', percent + '%');
         }
 
-        function uploadFile(file) {
-            AnnotationService.upload(file);
-        }
-
-        AnnotationService.subscribe($scope, function uploadFileSuccess() {
-
-            var resultData = AnnotationService.getFileData();
-            if (resultData.length <= 0)
-                return;
-            DataService.saveJson(resultData,'data.json');
-        });
     }
 })();
