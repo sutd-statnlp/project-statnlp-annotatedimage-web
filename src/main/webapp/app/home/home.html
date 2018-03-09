@@ -77,9 +77,9 @@
                     <div class="list-unstyled row clearfix">
                         <div id="aniimated-thumbnials" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <a href="{{'./data/images/region/' + vm.image.image_id + '/' + vm.region.region_id + '.png'}}" data-sub-html="{{vm.region.phrase}}">
-                                <img id="img-region" class="img-responsive pull-right" ng-src="{{'./data/images/region/' + vm.image.image_id + '/' + vm.region.region_id + '.png'}}">
+                                <!-- <img id="img-region" class="img-responsive pull-right hidden" ng-src="{{'./data/images/region/' + vm.image.image_id + '/' + vm.region.region_id + '.png'}}"> -->
+                                <canvas id="m-canvas" width="400" height="300"></canvas>
                             </a>
-
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <p>

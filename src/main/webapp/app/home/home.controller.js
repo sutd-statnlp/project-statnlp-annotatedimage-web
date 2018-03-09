@@ -5,9 +5,9 @@
         .module('statnlpApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', '$state', '$ocLazyLoad', 'ImageService', 'RegionService', 'AnnotationService','DataService'];
+    HomeController.$inject = ['$scope', '$state', '$ocLazyLoad', 'ImageService', 'RegionService', 'AnnotationService', 'DataService'];
 
-    function HomeController($scope, $state, $ocLazyLoad, ImageService, RegionService, AnnotationService,DataService) {
+    function HomeController($scope, $state, $ocLazyLoad, ImageService, RegionService, AnnotationService, DataService) {
 
         var vm = this;
         var regions = [];
@@ -61,6 +61,8 @@
                 vm.region = vm.imageRegions[vm.regionIndex];
                 vm.region["relations"] = {};
                 loadAnnotations(vm.region);
+
+                initCanvas();
             }
         }
 
@@ -180,6 +182,43 @@
         function loadProgress() {
             var percent = (vm.regionIndex + 1) * 100 / vm.imageRegions.length;
             $('.progress .progress-bar').css('width', percent + '%');
+            draw(0, 0, 0, 0, true);
+        }
+
+
+        var canvas = document.getElementById('m-canvas');
+        var context = canvas.getContext('2d');
+        var imageObj = new Image();
+
+        function initCanvas() {
+            draw(0, 0, 0, 0, true);
+
+            $('.dropdown-menu .inner li').hover(function () {
+                var index = $(this).attr('data-original-index');
+                if (index >= 2) {
+                    var object = vm.image.objects[index - 2];
+                    var x = object.x/2;
+                    var y = object.y/2;
+                    var w = object.w/2;
+                    var h = object.h/2;
+                    console.log('x=' + x + "  " + 'y=' + y + " w=" + w + " h=" + h);
+                    draw(x, y, w, h);
+                }
+            });
+        }
+
+        function draw(x, y, w, h, isImageChanged) {
+            if (isImageChanged) {
+                imageObj.onload = function () {
+                    context.drawImage(imageObj, 0, 0,400, 300);
+                };
+                imageObj.src = './data/images/region/' + vm.image.image_id + '/' + vm.region.region_id + '.png';
+            }
+
+            context.clearRect(0, 0, 400, 300);
+            context.drawImage(imageObj, 0, 0,400, 300);
+            context.strokeStyle = 'blue';
+            context.strokeRect(x, y, w, h);
         }
 
     }
