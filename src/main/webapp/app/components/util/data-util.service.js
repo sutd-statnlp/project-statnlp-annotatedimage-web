@@ -13,8 +13,7 @@
             abbreviate: abbreviate,
             byteSize: byteSize,
             openFile: openFile,
-            toBase64: toBase64,
-            csvToArray: csvToArray
+            toBase64: toBase64
         };
 
         return service;
@@ -70,71 +69,6 @@
                 var base64Data = e.target.result.substr(e.target.result.indexOf('base64,') + 'base64,'.length);
                 cb(base64Data);
             };
-        }
-
-        function csvToArray( strData, strDelimiter ){
-            // Check to see if the delimiter is defined. If not,
-            // then default to comma.
-            strDelimiter = (strDelimiter || ",");
-    
-            // Create a regular expression to parse the CSV values.
-            var objPattern = new RegExp(
-                (
-                    // Delimiters.
-                    "(\\" + strDelimiter + "|\\r?\\n|\\r|^)" +
-    
-                    // Quoted fields.
-                    "(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|" +
-    
-                    // Standard fields.
-                    "([^\"\\" + strDelimiter + "\\r\\n]*))"
-                ),
-                "gi"
-                );
-    
-            var arrData = [[]];
-    
-            var arrMatches = objPattern.exec( strData );
-            while (arrMatches){
-                // Get the delimiter that was found.
-                var strMatchedDelimiter = arrMatches[ 1 ];
-                if (
-                    strMatchedDelimiter.length &&
-                    strMatchedDelimiter !== strDelimiter
-                    ){
-    
-                    // Since we have reached a new row of data,
-                    // add an empty row to our data array.
-                    arrData.push( [] );
-    
-                }
-    
-                var strMatchedValue;
-
-                if (arrMatches[ 2 ]){
-    
-                    // We found a quoted value. When we capture
-                    // this value, unescape any double quotes.
-                    strMatchedValue = arrMatches[ 2 ].replace(
-                        new RegExp( "\"\"", "g" ),
-                        "\""
-                        );
-    
-                } else {
-    
-                    // We found a non-quoted value.
-                    strMatchedValue = arrMatches[ 3 ];
-    
-                }
-    
-    
-                // Now that we have our value string, let's add
-                // it to the data array.
-                arrData[ arrData.length - 1 ].push( strMatchedValue );
-            }
-    
-            // Return the parsed data.
-            return( arrData );
         }
     }
 })();

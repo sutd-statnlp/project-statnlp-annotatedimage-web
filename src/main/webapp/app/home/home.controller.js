@@ -5,16 +5,14 @@
         .module('statnlpApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', '$state', '$ocLazyLoad', 'ImageService', 'RegionService', 'AnnotationService', 'DataService'];
+    HomeController.$inject = ['$scope', '$state', '$ocLazyLoad', 'ImageService', 'DataService', 'CsvService'];
 
-    function HomeController($scope, $state, $ocLazyLoad, ImageService, RegionService, AnnotationService, DataService) {
+    function HomeController($scope, $state, $ocLazyLoad, ImageService, DataService, CsvService) {
 
         var vm = this;
-        var regions = [];
-        var annotations = [];
         var images = [];
 
-        vm.saveAnnotation = saveAnnotation;
+        vm.batchRange = [];
         vm.getObjectKeys = getObjectKeys;
         vm.nextRole = nextRole;
         vm.prevRole = prevRole;
@@ -38,69 +36,62 @@
 
         loadImages();
 
-
+        loadBatchRange();
+        
         function loadImages() {
             ImageService.getAll({}, onSuccess, onError);
 
             function onSuccess(data) {
                 images = data;
                 vm.image = images[0];
-                loadRegions(vm.image);
+                loadRegionsFromCsv(vm.image);
             }
         }
 
-        function loadRegions(image) {
-            RegionService.getAll({}, onSuccess, onError);
-
-            function onSuccess(data) {
-                regions = data;
-
-                vm.imageRegions = getRegionsByImageId(image.image_id);
-                $ocLazyLoad.load('js/pages/medias/image-gallery.js');
-
-                vm.region = vm.imageRegions[vm.regionIndex];
-                vm.region["relations"] = {};
-                loadAnnotations(vm.region);
-
-                initCanvas();
+        function loadBatchRange() {
+            for (var i = 0; i < CsvService.batchNumber; i++) {
+                vm.batchRange.push(i);                              
             }
         }
+        
 
-        function loadAnnotations(region) {
-            AnnotationService.getAll({}, onSuccess, onError);
+        function loadRegionsFromCsv(image) {
+            CsvService.getRegionsFromCsv(image.image_id).success(function (data) {
+                Papa.parse(data, {
+                    header: true,
+                    dynamicTyping: true,
+                    complete: success
+                });
 
-            function onSuccess(data) {
-                annotations = data;
-                vm.annotation = annotations[0];
-                injectAnnotationToRegion(region);
-            }
-        }
+                function success(result) {
+                    result.data.pop();
+                    vm.imageRegions = result.data;
+                    vm.region = vm.imageRegions[vm.regionIndex];
+                    $ocLazyLoad.load('js/pages/medias/image-gallery.js');
 
-        function saveAnnotation() {
-            var user = {
-                // user_name: globalUser.displayName,
-                // user_email: globalUser.email,
-                created_time: new Date().getTime(),
-                annotations: annotations
-            };
-            AnnotationService.save(user);
-        }
-
-        function injectAnnotationToRegion(item) {
-            var relations = getRelationsByRegion(item);
-            if (relations !== null) {
-                loadRegionFromAnnotation(item, relations);
-            }
-        }
-
-        function loadRegionFromAnnotation(item, relations) {
-            item['predicate'] = relations['predicate'];
-            for (var key in relations) {
-                if (key !== 'predicate') {
-                    item['relations'][key] = relations[key];
+                    loadRegionSample(vm.region);
+                    initCanvas();
+                    loadProgress();
                 }
-            }
-            loadProgress();
+            });
+        }
+
+        function loadRegionSample(region) {
+            var mapping = angular.fromJson(region.example_mapping.replace(/'/g, '"'));
+            region['format'] = {
+                subject1: mapping[0],
+                verb: region.roles_example.split('<rel>')[1].split('</rel>')[0],
+                subject2: mapping[1]
+            };
+
+            var sampleSub1 = region.roles_example.split('<arg n="0">')[1].split('</arg>')[0];
+            var sampleSub2 =  region.roles_example.split('<arg n="1">')[1].split('</arg>')[0];
+            var sampleText = region.roles_example.split('<text>')[1].split('</text>')[0];
+            var regionHtml = sampleText.replace(sampleSub1,'<b class="col-blue">' + sampleSub1 + '</b>');
+            regionHtml = regionHtml.replace(region.format.verb,'<b class="col-green">' + region.format.verb + '</b>');
+            regionHtml = regionHtml.replace(sampleSub2,'<b class="col-orange">' + sampleSub2 + '</b>');
+
+            $('#region-sample').html(regionHtml);
         }
 
         function getObjectNameById(id) {
@@ -112,36 +103,13 @@
             return null;
         }
 
-        function getRelationsByRegion(region) {
-            for (var i = 0; i < vm.annotation.relationships.length; i++) {
-                var item = vm.annotation.relationships[i];
-                if (item.region_id === region.region_id) {
-                    region['relationshipIndex'] = i;
-                    return item.region_relations;
-                }
-            }
-            return null;
-        }
-
         function onError(error) {
             console.log(error);
         }
 
         function chooseObject(objectId) {
-            var label = $('#m-region-role').text();
-            vm.region['relations'][label] = parseInt(objectId);
-            vm.annotation.relationships[vm.region.relationshipIndex].region_relations[label] = objectId;
+            vm.region['value'+vm.roleIndex] = parseInt(objectId);
         }
-
-        function getRegionsByImageId(id) {
-            for (var i = 0; i < regions.length; i++) {
-                var item = regions[i];
-                if (item.id === id)
-                    return item.regions;
-            }
-            return null;
-        }
-
 
         function getObjectKeys(object) {
             if (!object)
@@ -150,11 +118,13 @@
         }
 
         function nextRole() {
-            if (vm.roleIndex === getObjectKeys(vm.region.relations).length - 1) {
+            if(vm.regionIndex === vm.imageRegions.length){
+                return;
+            }
+            if (vm.roleIndex === CsvService.batchNumber - 1) {
                 vm.regionIndex++;
                 vm.region = vm.imageRegions[vm.regionIndex];
-                vm.region["relations"] = {};
-                injectAnnotationToRegion(vm.region);
+                loadRegionSample(vm.region);
                 vm.roleIndex = -1;
             }
             vm.roleIndex++;
@@ -197,11 +167,10 @@
                 var index = $(this).attr('data-original-index');
                 if (index >= 2) {
                     var object = vm.image.objects[index - 2];
-                    var x = object.x/2;
-                    var y = object.y/2;
-                    var w = object.w/2;
-                    var h = object.h/2;
-                    console.log('x=' + x + "  " + 'y=' + y + " w=" + w + " h=" + h);
+                    var x = object.x / 2;
+                    var y = object.y / 2;
+                    var w = object.w / 2;
+                    var h = object.h / 2;
                     draw(x, y, w, h);
                 }
             });
@@ -210,13 +179,13 @@
         function draw(x, y, w, h, isImageChanged) {
             if (isImageChanged) {
                 imageObj.onload = function () {
-                    context.drawImage(imageObj, 0, 0,400, 300);
+                    context.drawImage(imageObj, 0, 0, 400, 300);
                 };
                 imageObj.src = './data/images/region/' + vm.image.image_id + '/' + vm.region.region_id + '.png';
             }
 
             context.clearRect(0, 0, 400, 300);
-            context.drawImage(imageObj, 0, 0,400, 300);
+            context.drawImage(imageObj, 0, 0, 400, 300);
             context.strokeStyle = 'blue';
             context.strokeRect(x, y, w, h);
         }
