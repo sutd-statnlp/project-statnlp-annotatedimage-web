@@ -20,9 +20,7 @@
         vm.roleIndex = 0;
         vm.imageRegions = [];
         vm.regionIndex = 0;
-        vm.annotation = {
-            relationships: []
-        };
+        vm.suggestions = [];
         vm.region = {
             region_id: 'default'
         };
@@ -37,7 +35,7 @@
         loadImages();
 
         loadBatchRange();
-        
+
         function loadImages() {
             ImageService.getAll({}, onSuccess, onError);
 
@@ -50,10 +48,10 @@
 
         function loadBatchRange() {
             for (var i = 0; i < CsvService.batchNumber; i++) {
-                vm.batchRange.push(i);                              
+                vm.batchRange.push(i);
             }
         }
-        
+
 
         function loadRegionsFromCsv(image) {
             CsvService.getRegionsFromCsv(image.image_id).success(function (data) {
@@ -70,10 +68,24 @@
                     $ocLazyLoad.load('js/pages/medias/image-gallery.js');
 
                     loadRegionSample(vm.region);
-                    initCanvas();
+                    loadSelectedRole();
                     loadProgress();
                 }
             });
+        }
+
+        function loadSelectedRole() {
+            vm.suggestions = vm.region['suggestion' + vm.roleIndex].split(',');
+            loadSelectObjects(vm.suggestions);
+
+            var coordinates = angular.fromJson('[' + vm.region.coordinates.replace(/'/g, '"') + ']');
+            initCanvas(coordinates);
+        }
+
+        function loadSelectObjects(suggestions) {
+            for (var i = 0; i < suggestions.length; i++) {
+                $('.dropdown-menu.inner').append('<li data-original-index="' + (i + 2) + '"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">' + getObjectNameById(suggestions[i]) + '</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>');
+            }
         }
 
         function loadRegionSample(region) {
@@ -85,19 +97,19 @@
             };
 
             var sampleSub1 = region.roles_example.split('<arg n="0">')[1].split('</arg>')[0];
-            var sampleSub2 =  region.roles_example.split('<arg n="1">')[1].split('</arg>')[0];
-            var sampleText = region.roles_example.split('<text>')[1].split('</text>')[0];
-            var regionHtml = sampleText.replace(sampleSub1,'<b class="col-blue">' + sampleSub1 + '</b>');
-            regionHtml = regionHtml.replace(region.format.verb,'<b class="col-green">' + region.format.verb + '</b>');
-            regionHtml = regionHtml.replace(sampleSub2,'<b class="col-orange">' + sampleSub2 + '</b>');
-
+            var sampleSub2 = region.roles_example.split('<arg n="1">')[1].split('</arg>')[0];
+            var sampleText = region.roles_example.split('<text>')[1].split('</text>')[0].replace(/\s\s+/g, ' ');
+            var regionHtml = sampleText.replace(sampleSub1, '<b class="col-blue">' + sampleSub1 + '</b>');
+            regionHtml = regionHtml.replace(region.format.verb, '<b class="col-green">' + region.format.verb + '</b>');
+            regionHtml = regionHtml.replace(sampleSub2, '<b class="col-orange">' + sampleSub2 + '</b>');
+            
             $('#region-sample').html(regionHtml);
         }
 
         function getObjectNameById(id) {
             for (var i = 0; i < vm.image.objects.length; i++) {
                 var item = vm.image.objects[i];
-                if (item.object_id === id)
+                if (item.object_id == id)
                     return item.names[0];
             }
             return null;
@@ -108,7 +120,7 @@
         }
 
         function chooseObject(objectId) {
-            vm.region['value'+vm.roleIndex] = parseInt(objectId);
+            vm.region['value' + vm.roleIndex] = parseInt(objectId);
         }
 
         function getObjectKeys(object) {
@@ -118,7 +130,7 @@
         }
 
         function nextRole() {
-            if(vm.regionIndex === vm.imageRegions.length){
+            if (vm.regionIndex === vm.imageRegions.length) {
                 return;
             }
             if (vm.roleIndex === CsvService.batchNumber - 1) {
@@ -128,25 +140,26 @@
                 vm.roleIndex = -1;
             }
             vm.roleIndex++;
-            loadDefaultEntity();
+            loadRoleEntity();
         }
 
         function prevRole() {
             if (vm.roleIndex === 0)
                 return;
             vm.roleIndex--;
-            loadDefaultEntity();
+            loadRoleEntity();
         }
 
         function chooseRole(roleIndex) {
             vm.roleIndex = roleIndex;
-            loadDefaultEntity();
+            loadRoleEntity();
         }
 
-        function loadDefaultEntity() {
+        function loadRoleEntity() {
             $('.filter-option').html('&nbsp;');
             vm.chosenEntity = null;
             loadProgress();
+            loadSelectedRole();
         }
 
         function loadProgress() {
@@ -160,20 +173,24 @@
         var context = canvas.getContext('2d');
         var imageObj = new Image();
 
-        function initCanvas() {
-            draw(0, 0, 0, 0, true);
-
+        function initCanvas(coordinates) {
+            $('.dropdown-menu .inner li').unbind('mouseenter mouseleave');
             $('.dropdown-menu .inner li').hover(function () {
                 var index = $(this).attr('data-original-index');
                 if (index >= 2) {
-                    var object = vm.image.objects[index - 2];
-                    var x = object.x / 2;
-                    var y = object.y / 2;
-                    var w = object.w / 2;
-                    var h = object.h / 2;
-                    draw(x, y, w, h);
+                    drawByCoordinateIndex(coordinates,index);
                 }
             });
+            context.clearRect(0, 0, 400, 300);
+        }
+
+        function drawByCoordinateIndex(coordinates, index) {
+            var object = coordinates[index - 2];
+            var x = object.x / 2;
+            var y = object.y / 2;
+            var w = object.w / 2;
+            var h = object.h / 2;
+            draw(x, y, w, h);
         }
 
         function draw(x, y, w, h, isImageChanged) {

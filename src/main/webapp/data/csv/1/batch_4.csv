@@ -1,0 +1,13 @@
+,region_id,predicate,predicate_def,synset,caption,example_mapping,roles_example,role0,role1,role2,role3,value0,value1,value2,value3,suggestion0,suggestion1,suggestion2,suggestion3,coordinates
+0,1940,hide,prevent from being seen or discovered,hide.v.01,a bike has been hidden by the post,"{'0': 'hider', '1': 'thing hidden', '2': 'hidden from'}","<example name=""typical example"">
+<text>
+    The contributions were funded by monthly payments of $1,000 to
+    $2,000 to Appleyard in the guise of a ``special production fee''
+    -- in effect, *trace* hiding the nature of the payments from the
+    Internal Revenue Service, federal prosecutors said. 
+</text>
+        <arg n=""0"">*trace* -&gt;  The contributions</arg>
+        <rel>hiding</rel>
+        <arg n=""1"">the nature of the payments</arg>
+        <arg f=""from"" n=""2"">the Internal Revenue Service</arg>
+</example>",place,hider,thing hidden,hidden from,,,5089,,"1023813,1023838,5085,5071,5089","1023813,1023838,5085,5071,5089","5089,1023836,5085,5071,1023813,1023841,5088,1023845,5086,5077,5069,5074,5076,5075,1023847,1023848,1023819,1023846,1023838,5080,5082,5081,5083,5084,1023823","1023813,1023838,5085,5071,5089","{'object_id': 1023813, 'y': 347, 'w': 478, 'h': 253, 'x': 320},{'object_id': 1023838, 'y': 325, 'w': 142, 'h': 246, 'x': 321},{'object_id': 5085, 'y': 337, 'w': 81, 'h': 61, 'x': 350},{'object_id': 5071, 'y': 362, 'w': 70, 'h': 80, 'x': 361},{'object_id': 5089, 'y': 405, 'w': 47, 'h': 63, 'x': 418}"

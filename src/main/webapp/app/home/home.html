@@ -103,7 +103,7 @@
                                 <select ng-change="vm.chooseObject(vm.chosenEntity)" ng-model="vm.chosenEntity">
                                     <option value="" disabled selected>&nbsp; </option>
                                     <option value="0">Not visible in the image</option>
-                                    <option value="{{item.object_id}}" ng-repeat="item in vm.image.objects">{{item.names[0]}}</option>
+                                    <option value="{{item}}" ng-repeat="item in vm.suggestions">{{vm.getObjectNameById(item)}}</option>
                                 </select>
                             </p>
 
@@ -126,8 +126,7 @@
                     </p>
                     <div class="m-list">
                         <ul>
-                            <li>Hold: grasp, carry, or support with one's arms or hands </li>
-                            <li>Thing held: The object/person which is being held by someone </li>
+                            <li><span class="text-capitalize">{{vm.region.predicate}}</span>: {{vm.region.predicate_def}} </li>
                         </ul>
                     </div>
                     <p>
