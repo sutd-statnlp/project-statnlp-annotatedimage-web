@@ -1,0 +1,16 @@
+,image_id,region_id,predicate,predicate_def,synset,caption,example_mapping,roles_example,role0,value0,suggestion0,coordinates
+0,2,1939,pry,"to move or force, especially in an effort to get something open",pry.v.01,red car has been prked,"{'0': 'agent, pry-er', '1': 'thing pried', '2': 'end state/attribute of arg1'}","<example name=""lexical error"">
+<inflection aspect=""ns"" form=""gerund"" person=""ns"" tense=""ns"" voice=""ns"" />
+<text>
+    And [*] try plying [sic] new dollars free in a market that is softening,
+    hurt by a strong dollar and concerned about overcapacity -- the
+    industry's Darth Vadar. 
+</text>
+        <arg n=""0"">[*]</arg>
+        <rel>plying</rel>
+        <arg n=""1"">new dollars</arg>
+        <arg n=""2"">free</arg>
+        <arg f=""LOC"" n=""M"">in a market that is softening, hurt by a
+        strong dollar and concerned about overcapacity -- the
+        industry's Darth Vadar</arg> 
+</example>",thing pried,1023836,"1023836,5085,1023845,5086,5089,1023848,5077,5071,5074,5076,5075,1023841,1023847,5080,5082,5081,5083,5084,1023838,1023813,5069,5088,1023823,1023819,1023846","{'object_id': 1023841, 'y': 345, 'x': 0, 'w': 364, 'h': 254},{'object_id': 1023813, 'y': 347, 'x': 320, 'w': 478, 'h': 253},{'object_id': 1023838, 'y': 325, 'x': 321, 'w': 142, 'h': 246},{'object_id': 1023836, 'y': 354, 'x': 240, 'w': 127, 'h': 108},{'object_id': 5082, 'y': 263, 'x': 644, 'w': 98, 'h': 110},{'object_id': 5085, 'y': 337, 'x': 350, 'w': 81, 'h': 61},{'object_id': 5071, 'y': 362, 'x': 361, 'w': 70, 'h': 80},{'object_id': 5088, 'y': 541, 'x': 338, 'w': 40, 'h': 24},{'object_id': 5089, 'y': 405, 'x': 418, 'w': 47, 'h': 63}"

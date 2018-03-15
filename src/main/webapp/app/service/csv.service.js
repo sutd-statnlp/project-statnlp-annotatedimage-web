@@ -15,12 +15,12 @@
             batchNumber: batchNumber
         };
 
-        function getEndPoint(imageId) {
-            return '/data/csv/' + imageId + '/batch_' + batchNumber + '.csv';
+        function getEndPoint() {
+            return '/data/csv/batch_' + batchNumber + '.csv';
         }
 
-        function getRegionsFromCsv(imageId) {
-            var endPoint = getEndPoint(imageId);
+        function getRegionsFromCsv() {
+            var endPoint = getEndPoint();
             return $http.get(endPoint);
         }
 

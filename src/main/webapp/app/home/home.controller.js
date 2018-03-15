@@ -5,9 +5,9 @@
         .module('statnlpApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', '$state', '$ocLazyLoad', 'ImageService', 'DataService', 'CsvService'];
+    HomeController.$inject = ['$scope', '$state', '$ocLazyLoad', '$localStorage', 'ImageService', 'DataService', 'CsvService'];
 
-    function HomeController($scope, $state, $ocLazyLoad, ImageService, DataService, CsvService) {
+    function HomeController($scope, $state, $ocLazyLoad, $localStorage, ImageService, DataService, CsvService) {
 
         var vm = this;
         var images = [];
@@ -54,7 +54,7 @@
 
 
         function loadRegionsFromCsv(image) {
-            CsvService.getRegionsFromCsv(image.image_id).success(function (data) {
+            CsvService.getRegionsFromCsv().success(function (data) {
                 Papa.parse(data, {
                     header: true,
                     dynamicTyping: true,
@@ -63,15 +63,34 @@
 
                 function success(result) {
                     result.data.pop();
-                    vm.imageRegions = result.data;
-                    vm.region = vm.imageRegions[vm.regionIndex];
-                    $ocLazyLoad.load('js/pages/medias/image-gallery.js');
-
-                    loadRegionSample(vm.region);
-                    loadSelectedRole();
-                    loadProgress();
+                    if ($localStorage.regions == null)
+                        vm.imageRegions = loadRegionsByImageId(result.data, image.image_id);
+                    else
+                        vm.imageRegions  = $localStorage.regions;
+                        
+                    loadRegions(vm.imageRegions);
                 }
             });
+        }
+
+        function loadRegions(regions) {
+            vm.region = regions[vm.regionIndex];
+            $ocLazyLoad.load('js/pages/medias/image-gallery.js');
+
+            loadRegionSample(vm.region);
+            loadSelectedRole();
+            loadProgress();
+        }
+
+        function loadRegionsByImageId(regions, imageId) {
+            var result = [];
+            for (var i = 0; i < regions.length; i++) {
+                var item = regions[i];
+                if (item.image_id === imageId) {
+                    result.push(item);
+                }
+            }
+            return result;
         }
 
         function loadSelectedRole() {
@@ -90,19 +109,22 @@
 
         function loadRegionSample(region) {
             var mapping = angular.fromJson(region.example_mapping.replace(/'/g, '"'));
-            region['format'] = {
-                subject1: mapping[0],
-                verb: region.roles_example.split('<rel>')[1].split('</rel>')[0],
-                subject2: mapping[1]
-            };
-
+   
+            var verb = region.roles_example.split('<rel>')[1].split('</rel>')[0]
+           
             var sampleSub1 = region.roles_example.split('<arg n="0">')[1].split('</arg>')[0];
             var sampleSub2 = region.roles_example.split('<arg n="1">')[1].split('</arg>')[0];
             var sampleText = region.roles_example.split('<text>')[1].split('</text>')[0].replace(/\s\s+/g, ' ');
+
             var regionHtml = sampleText.replace(sampleSub1, '<b class="col-blue">' + sampleSub1 + '</b>');
-            regionHtml = regionHtml.replace(region.format.verb, '<b class="col-green">' + region.format.verb + '</b>');
+            regionHtml = regionHtml.replace(verb, '<b class="col-green">' + verb + '</b>');
             regionHtml = regionHtml.replace(sampleSub2, '<b class="col-orange">' + sampleSub2 + '</b>');
+
+            var format =  sampleText.replace(sampleSub1, '<b class="col-blue text-uppercase">' + mapping[0] + '</b>');
+            format = format.replace(region.format.verb, '<b class="col-green text-uppercase">' + verb + '</b>');
+            format = format.replace(sampleSub2, '<b class="col-orange text-uppercase">' + mapping[1] + '</b>');
             
+            $('#region-format').html(format);
             $('#region-sample').html(regionHtml);
         }
 
@@ -141,6 +163,7 @@
             }
             vm.roleIndex++;
             loadRoleEntity();
+            DataService.saveToStorage(vm.imageRegions);
         }
 
         function prevRole() {
@@ -178,7 +201,7 @@
             $('.dropdown-menu .inner li').hover(function () {
                 var index = $(this).attr('data-original-index');
                 if (index >= 2) {
-                    drawByCoordinateIndex(coordinates,index);
+                    drawByCoordinateIndex(coordinates, index);
                 }
             });
             context.clearRect(0, 0, 400, 300);

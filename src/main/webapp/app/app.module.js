@@ -7,7 +7,8 @@
             'ngAria',
             'ui.router',
             'oc.lazyLoad',
-            'ngFileUpload'
+            'ngFileUpload',
+            'ngStorage'
         ])
         .run(run);
 

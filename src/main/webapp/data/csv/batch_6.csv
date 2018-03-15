@@ -1,0 +1,73 @@
+,image_id,region_id,predicate,predicate_def,synset,caption,example_mapping,roles_example,role0,role1,role2,role3,role4,role5,value0,value1,value2,value3,value4,value5,suggestion0,suggestion1,suggestion2,suggestion3,suggestion4,suggestion5,coordinates
+0,1,1536,park,place temporarily,park.v.01,A white car parked on the street. ,"{'0': 'parker, agent', '1': 'entity parked', '2': 'parking place'}","<example name=""passive"">
+<inflection aspect=""ns"" form=""participle"" person=""ns"" tense=""present"" voice=""passive"" />
+<text>
+ Much of the excess spending will be pushed [*-3] into fiscal 1991 , and in some cases is temporarily parked [*-3] in slow-spending accounts in anticipation of [*] being transferred [*-1] to faster-spending areas after the budget scorekeeping is completed [*-2] .
+</text>
+	<arg f=""ADV"" n=""M"">in some cases</arg>
+	<arg f=""TMP"" n=""M"">temporarily</arg>
+	<rel>parked</rel>
+	<arg n=""1"">[*-3] -&gt;  Much of the excess spending</arg>
+	<arg f=""in"" n=""2"">slow-spending accounts</arg>
+	<arg f=""ADV"" n=""M"">in anticipation of [*] being transferred [*-1] to faster-spending areas after the budget scorekeeping is completed [*-2]</arg>
+</example>",parking place,entity parked,manner,adverbial modification,place,parker,on 1058539,1058515,,,,,"1058539,1058534,1058519,1058515,5049,1058535,5051,1058508,5055,3798579,1058545,1058542,1058543,1058549,5050,1058525,5045,1058507,1058548,3798576,3798577,1058531,1058528,1058511,1058547,1058498,5060,1058518,1058541,1058530,1058546","1058515,5049,1058542,5050,1058535,5051,5055,1058530,1058539,1058511,1058547,3798576,3798577,1058531,1058528,1058534,3798579,1058545,5045,1058525,1058519,1058543,1058548,1058518,5060,1058549,1058508,1058541,1058507,1058546,1058498","1058549,1058539,1058545,1058542,5055,3798576,3798577,1058515,5060,1058530,5049,1058531,1058519,1058547,5050,1058518","1058549,1058539,1058545,1058542,5055,3798576,3798577,1058515,5060,1058530,5049,1058531,1058519,1058547,5050,1058518","1058549,1058539,1058545,1058542,5055,3798576,3798577,1058515,5060,1058530,5049,1058531,1058519,1058547,5050,1058518","1058549,1058539,1058545,1058542,5055,3798576,3798577,1058515,5060,1058530,5049,1058531,1058519,1058547,5050,1058518","{'object_id': 1058549, 'y': 0, 'x': 0, 'w': 799, 'h': 557},{'object_id': 1058539, 'y': 283, 'x': 439, 'w': 359, 'h': 258},{'object_id': 1058545, 'y': 0, 'x': 178, 'w': 476, 'h': 360},{'object_id': 1058542, 'y': 278, 'x': 533, 'w': 241, 'h': 176},{'object_id': 5055, 'y': 213, 'x': 623, 'w': 78, 'h': 348},{'object_id': 3798576, 'y': 264, 'x': 367, 'w': 82, 'h': 248},{'object_id': 3798577, 'y': 254, 'x': 238, 'w': 57, 'h': 259},{'object_id': 1058515, 'y': 342, 'x': 719, 'w': 80, 'h': 164},{'object_id': 5060, 'y': 345, 'x': 716, 'w': 70, 'h': 164},{'object_id': 1058530, 'y': 296, 'x': 367, 'w': 82, 'h': 98},{'object_id': 5049, 'y': 319, 'x': 478, 'w': 78, 'h': 95},{'object_id': 1058531, 'y': 369, 'x': 388, 'w': 48, 'h': 128},{'object_id': 1058519, 'y': 325, 'x': 577, 'w': 26, 'h': 143},{'object_id': 1058547, 'y': 295, 'x': 368, 'w': 82, 'h': 102},{'object_id': 5050, 'y': 370, 'x': 517, 'w': 18, 'h': 9},{'object_id': 1058518, 'y': 317, 'x': 448, 'w': 43, 'h': 23}"
+1,2,1389,park,place temporarily,park.v.01,red car parked on road,"{'0': 'parker, agent', '1': 'entity parked', '2': 'parking place'}","<example name=""passive"">
+<inflection aspect=""ns"" form=""participle"" person=""ns"" tense=""present"" voice=""passive"" />
+<text>
+ Much of the excess spending will be pushed [*-3] into fiscal 1991 , and in some cases is temporarily parked [*-3] in slow-spending accounts in anticipation of [*] being transferred [*-1] to faster-spending areas after the budget scorekeeping is completed [*-2] .
+</text>
+	<arg f=""ADV"" n=""M"">in some cases</arg>
+	<arg f=""TMP"" n=""M"">temporarily</arg>
+	<rel>parked</rel>
+	<arg n=""1"">[*-3] -&gt;  Much of the excess spending</arg>
+	<arg f=""in"" n=""2"">slow-spending accounts</arg>
+	<arg f=""ADV"" n=""M"">in anticipation of [*] being transferred [*-1] to faster-spending areas after the budget scorekeeping is completed [*-2]</arg>
+</example>",parking place,entity parked,manner,adverbial modification,place,parker,on 1023841,1023836,,,,,"1023841,1023813,1023845,5086,5089,5077,1023836,5085,1023848,5069,5074,5076,5075,1023819,1023846,1023823,1023847,1023838,5080,5082,5081,5083,5084,5071,5088","1023836,5085,1023845,5086,5089,1023848,5077,5071,5074,5076,5075,1023841,1023847,5080,5082,5081,5083,5084,1023838,1023813,5069,5088,1023823,1023819,1023846","1023841,1023813,5077,1023838,1023836,5085,5071,5088,5089","1023841,1023813,5077,1023838,1023836,5085,5071,5088,5089","1023841,1023813,5077,1023838,1023836,5085,5071,5088,5089","1023841,1023813,5077,1023838,1023836,5085,5071,5088,5089","{'object_id': 1023841, 'y': 345, 'x': 0, 'w': 364, 'h': 254},{'object_id': 1023813, 'y': 347, 'x': 320, 'w': 478, 'h': 253},{'object_id': 5077, 'y': 531, 'x': 0, 'w': 366, 'h': 68},{'object_id': 1023838, 'y': 325, 'x': 321, 'w': 142, 'h': 246},{'object_id': 1023836, 'y': 354, 'x': 240, 'w': 127, 'h': 108},{'object_id': 5085, 'y': 337, 'x': 350, 'w': 81, 'h': 61},{'object_id': 5071, 'y': 362, 'x': 361, 'w': 70, 'h': 80},{'object_id': 5088, 'y': 541, 'x': 338, 'w': 40, 'h': 24},{'object_id': 5089, 'y': 405, 'x': 418, 'w': 47, 'h': 63}"
+2,2,1439,park,place temporarily,park.v.01,A white car parked on the side of the road. ,"{'0': 'parker, agent', '1': 'entity parked', '2': 'parking place'}","<example name=""passive"">
+<inflection aspect=""ns"" form=""participle"" person=""ns"" tense=""present"" voice=""passive"" />
+<text>
+ Much of the excess spending will be pushed [*-3] into fiscal 1991 , and in some cases is temporarily parked [*-3] in slow-spending accounts in anticipation of [*] being transferred [*-1] to faster-spending areas after the budget scorekeeping is completed [*-2] .
+</text>
+	<arg f=""ADV"" n=""M"">in some cases</arg>
+	<arg f=""TMP"" n=""M"">temporarily</arg>
+	<rel>parked</rel>
+	<arg n=""1"">[*-3] -&gt;  Much of the excess spending</arg>
+	<arg f=""in"" n=""2"">slow-spending accounts</arg>
+	<arg f=""ADV"" n=""M"">in anticipation of [*] being transferred [*-1] to faster-spending areas after the budget scorekeeping is completed [*-2]</arg>
+</example>",parking place,entity parked,manner,adverbial modification,place,parker,on 1023813,5085,,,,,"1023845,5086,1023841,1023838,5069,5080,5082,5081,5083,5084,1023847,1023848,1023813,1023823,5077,1023819,1023846,5074,5076,5075,1023836,5085,5089,5071,5088","1023836,5085,5089,1023845,5086,1023838,5071,5080,5082,5081,5083,5084,1023813,1023847,5077,1023848,5088,5074,5076,5075,1023841,5069,1023819,1023846,1023823","1023813,1023838,1023836,5082,5085,5071,5088,5089","1023813,1023838,1023836,5082,5085,5071,5088,5089","1023813,1023838,1023836,5082,5085,5071,5088,5089","1023813,1023838,1023836,5082,5085,5071,5088,5089","{'object_id': 1023813, 'y': 347, 'x': 320, 'w': 478, 'h': 253},{'object_id': 1023838, 'y': 325, 'x': 321, 'w': 142, 'h': 246},{'object_id': 1023836, 'y': 354, 'x': 240, 'w': 127, 'h': 108},{'object_id': 5082, 'y': 263, 'x': 644, 'w': 98, 'h': 110},{'object_id': 5085, 'y': 337, 'x': 350, 'w': 81, 'h': 61},{'object_id': 5071, 'y': 362, 'x': 361, 'w': 70, 'h': 80},{'object_id': 5088, 'y': 541, 'x': 338, 'w': 40, 'h': 24},{'object_id': 5089, 'y': 405, 'x': 418, 'w': 47, 'h': 63}"
+3,2,1538,park,place temporarily,park.v.01,red car is parked along the road,"{'0': 'parker, agent', '1': 'entity parked', '2': 'parking place'}","<example name=""passive"">
+<inflection aspect=""ns"" form=""participle"" person=""ns"" tense=""present"" voice=""passive"" />
+<text>
+ Much of the excess spending will be pushed [*-3] into fiscal 1991 , and in some cases is temporarily parked [*-3] in slow-spending accounts in anticipation of [*] being transferred [*-1] to faster-spending areas after the budget scorekeeping is completed [*-2] .
+</text>
+	<arg f=""ADV"" n=""M"">in some cases</arg>
+	<arg f=""TMP"" n=""M"">temporarily</arg>
+	<rel>parked</rel>
+	<arg n=""1"">[*-3] -&gt;  Much of the excess spending</arg>
+	<arg f=""in"" n=""2"">slow-spending accounts</arg>
+	<arg f=""ADV"" n=""M"">in anticipation of [*] being transferred [*-1] to faster-spending areas after the budget scorekeeping is completed [*-2]</arg>
+</example>",parking place,entity parked,manner,adverbial modification,place,parker,along 1023841,1023836,,,,,"1023841,1023813,1023845,5086,5089,1023836,5085,5077,5069,5074,5076,5075,1023848,1023819,1023846,1023823,1023838,5071,1023847,5088,5080,5082,5081,5083,5084","1023836,5085,1023845,5086,5089,1023848,5077,5071,5074,5076,5075,1023841,1023847,5080,5082,5081,5083,5084,1023838,1023813,5069,5088,1023823,1023819,1023846","1023841,1023813,5077,1023838,1023836,5085,5071,5088,5089","1023841,1023813,5077,1023838,1023836,5085,5071,5088,5089","1023841,1023813,5077,1023838,1023836,5085,5071,5088,5089","1023841,1023813,5077,1023838,1023836,5085,5071,5088,5089","{'object_id': 1023841, 'y': 345, 'x': 0, 'w': 364, 'h': 254},{'object_id': 1023813, 'y': 347, 'x': 320, 'w': 478, 'h': 253},{'object_id': 5077, 'y': 531, 'x': 0, 'w': 366, 'h': 68},{'object_id': 1023838, 'y': 325, 'x': 321, 'w': 142, 'h': 246},{'object_id': 1023836, 'y': 354, 'x': 240, 'w': 127, 'h': 108},{'object_id': 5085, 'y': 337, 'x': 350, 'w': 81, 'h': 61},{'object_id': 5071, 'y': 362, 'x': 361, 'w': 70, 'h': 80},{'object_id': 5088, 'y': 541, 'x': 338, 'w': 40, 'h': 24},{'object_id': 5089, 'y': 405, 'x': 418, 'w': 47, 'h': 63}"
+4,2,1591,park,place temporarily,park.v.01,red car parked on the side of the street,"{'0': 'parker, agent', '1': 'entity parked', '2': 'parking place'}","<example name=""passive"">
+<inflection aspect=""ns"" form=""participle"" person=""ns"" tense=""present"" voice=""passive"" />
+<text>
+ Much of the excess spending will be pushed [*-3] into fiscal 1991 , and in some cases is temporarily parked [*-3] in slow-spending accounts in anticipation of [*] being transferred [*-1] to faster-spending areas after the budget scorekeeping is completed [*-2] .
+</text>
+	<arg f=""ADV"" n=""M"">in some cases</arg>
+	<arg f=""TMP"" n=""M"">temporarily</arg>
+	<rel>parked</rel>
+	<arg n=""1"">[*-3] -&gt;  Much of the excess spending</arg>
+	<arg f=""in"" n=""2"">slow-spending accounts</arg>
+	<arg f=""ADV"" n=""M"">in anticipation of [*] being transferred [*-1] to faster-spending areas after the budget scorekeeping is completed [*-2]</arg>
+</example>",parking place,entity parked,manner,adverbial modification,place,parker,on 1023813,1023836,,,,,"1023845,5086,1023841,1023838,5069,5080,5082,5081,5083,5084,1023847,1023848,1023813,1023823,5077,1023819,1023846,5074,5076,5075,1023836,5085,5089,5071,5088","1023836,5085,1023845,5086,5089,1023848,5077,5071,5074,5076,5075,1023841,1023847,5080,5082,5081,5083,5084,1023838,1023813,5069,5088,1023823,1023819,1023846","1023841,1023813,1023838,1023836,5082,5085,5071,5088,5089","1023841,1023813,1023838,1023836,5082,5085,5071,5088,5089","1023841,1023813,1023838,1023836,5082,5085,5071,5088,5089","1023841,1023813,1023838,1023836,5082,5085,5071,5088,5089","{'object_id': 1023841, 'y': 345, 'x': 0, 'w': 364, 'h': 254},{'object_id': 1023813, 'y': 347, 'x': 320, 'w': 478, 'h': 253},{'object_id': 1023838, 'y': 325, 'x': 321, 'w': 142, 'h': 246},{'object_id': 1023836, 'y': 354, 'x': 240, 'w': 127, 'h': 108},{'object_id': 5082, 'y': 263, 'x': 644, 'w': 98, 'h': 110},{'object_id': 5085, 'y': 337, 'x': 350, 'w': 81, 'h': 61},{'object_id': 5071, 'y': 362, 'x': 361, 'w': 70, 'h': 80},{'object_id': 5088, 'y': 541, 'x': 338, 'w': 40, 'h': 24},{'object_id': 5089, 'y': 405, 'x': 418, 'w': 47, 'h': 63}"
+5,2,1687,park,place temporarily,park.v.01,red car parallel parked,"{'0': 'parker, agent', '1': 'entity parked', '2': 'parking place'}","<example name=""passive"">
+<inflection aspect=""ns"" form=""participle"" person=""ns"" tense=""present"" voice=""passive"" />
+<text>
+ Much of the excess spending will be pushed [*-3] into fiscal 1991 , and in some cases is temporarily parked [*-3] in slow-spending accounts in anticipation of [*] being transferred [*-1] to faster-spending areas after the budget scorekeeping is completed [*-2] .
+</text>
+	<arg f=""ADV"" n=""M"">in some cases</arg>
+	<arg f=""TMP"" n=""M"">temporarily</arg>
+	<rel>parked</rel>
+	<arg n=""1"">[*-3] -&gt;  Much of the excess spending</arg>
+	<arg f=""in"" n=""2"">slow-spending accounts</arg>
+	<arg f=""ADV"" n=""M"">in anticipation of [*] being transferred [*-1] to faster-spending areas after the budget scorekeeping is completed [*-2]</arg>
+</example>",parking place,entity parked,manner,adverbial modification,place,parker,,,,,,1023836,"1023841,1023813,1023838,1023836,5082,5085,5071,5088,5089","1023836,5085,1023845,5086,5089,1023848,5077,1023841,1023847,5080,5082,5081,5083,5084,5074,5076,5075,1023838,1023813,5069,5071,5088,1023819,1023846,1023823","1023841,1023813,1023838,1023836,5082,5085,5071,5088,5089","1023841,1023813,1023838,1023836,5082,5085,5071,5088,5089","1023841,1023813,1023838,1023836,5082,5085,5071,5088,5089","1023841,1023813,1023838,1023836,5082,5085,5071,5088,5089","{'object_id': 1023841, 'y': 345, 'x': 0, 'w': 364, 'h': 254},{'object_id': 1023813, 'y': 347, 'x': 320, 'w': 478, 'h': 253},{'object_id': 1023838, 'y': 325, 'x': 321, 'w': 142, 'h': 246},{'object_id': 1023836, 'y': 354, 'x': 240, 'w': 127, 'h': 108},{'object_id': 5082, 'y': 263, 'x': 644, 'w': 98, 'h': 110},{'object_id': 5085, 'y': 337, 'x': 350, 'w': 81, 'h': 61},{'object_id': 5071, 'y': 362, 'x': 361, 'w': 70, 'h': 80},{'object_id': 5088, 'y': 541, 'x': 338, 'w': 40, 'h': 24},{'object_id': 5089, 'y': 405, 'x': 418, 'w': 47, 'h': 63}"

@@ -4,16 +4,18 @@
         .module('statnlpApp')
         .factory('DataService', DataService);
 
-    DataService.$inject = ['$resource'];
+    DataService.$inject = ['$resource', '$localStorage'];
 
-    function DataService($resource) {
+    function DataService($resource, $localStorage) {
 
         var endpointUrl = '';
 
         var service = {
             getEndpoint: getEndpoint,
             getDbEndpoint: getDbEndpoint,
-            saveJson: saveJson
+            saveJson: saveJson,
+            saveToStorage: saveToStorage,
+            saveCsv: saveCsv
         };
         return service;
 
@@ -60,6 +62,20 @@
                 a.dispatchEvent(e);
             }
         }
+
+        function saveToStorage(data) {
+            $localStorage.regions = data;
+        }
+
+        function saveCsv() {
+            var csv = Papa.unparse($localStorage.regions);
+            var hiddenElement = document.createElement('a');
+            hiddenElement.href = 'data:attachment/csv,' + encodeURI(csv);
+            hiddenElement.target = '_blank';
+            hiddenElement.download = 'regions.csv';
+            hiddenElement.click();
+        }
+
 
     }
 })();

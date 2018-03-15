@@ -32,6 +32,7 @@ module.exports = function (config) {
             'src/main/webapp/bower_components/messageformat/messageformat.js',
             'src/main/webapp/bower_components/oclazyload/dist/ocLazyLoad.js',
             'src/main/webapp/bower_components/ng-file-upload/ng-file-upload.js',
+            'src/main/webapp/bower_components/ngstorage/ngStorage.js',
             'src/main/webapp/bower_components/angular-mocks/angular-mocks.js',
             // endbower
             'src/main/webapp/app/app.module.js',

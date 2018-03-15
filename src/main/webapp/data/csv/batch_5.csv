@@ -1,0 +1,34 @@
+,image_id,region_id,predicate,predicate_def,synset,caption,example_mapping,roles_example,role0,role1,role2,role3,role4,value0,value1,value2,value3,value4,suggestion0,suggestion1,suggestion2,suggestion3,suggestion4,coordinates
+0,1,1885,see,perceive by sight or have the power to perceive by sight,see.v.01,trees are seen in the background,"{'0': 'viewer', '1': 'thing viewed'}","<example name=""see an NP"">
+  <text>
+    John saw the President.
+  </text>
+  <arg n=""0"">John</arg>
+  <rel>saw</rel>
+  <arg n=""1"">the President</arg>
+</example>",viewer,time,manner,place,thing viewed,,,,,1058549,"1058549,1058534,1058508,1058539,1058543,1058545,5045,1058542,1058498,3798576,3798577,1058548,1058507,1058530,5049,1058531,1058511,1058528,1058547,1058525,1058546,1058535,5051,5050,1058518,1058541","1058549,1058534,1058508,1058539,1058543,1058545,5045,1058542,1058498,3798576,3798577,1058548,1058507,1058530,5049,1058531,1058511,1058528,1058547,1058525,1058546,1058535,5051,5050,1058518,1058541","1058549,1058534,1058508,1058539,1058543,1058545,5045,1058542,1058498,3798576,3798577,1058548,1058507,1058530,5049,1058531,1058511,1058528,1058547,1058525,1058546,1058535,5051,5050,1058518,1058541","1058549,1058534,1058508,1058539,1058543,1058545,5045,1058542,1058498,3798576,3798577,1058548,1058507,1058530,5049,1058531,1058511,1058528,1058547,1058525,1058546,1058535,5051,5050,1058518,1058541","1058549,1058545,5055,5045,1058534,3798579,1058548,1058539,1058543,5050,1058508,1058519,1058535,5051,1058515,5049,1058518,1058542,3798576,3798577,1058525,1058507,1058498,1058541,5060,1058511,1058547,1058531,1058528,1058530,1058546","{'object_id': 1058549, 'y': 0, 'x': 0, 'w': 799, 'h': 557},{'object_id': 1058534, 'y': 308, 'x': 78, 'w': 722, 'h': 290},{'object_id': 1058508, 'y': 0, 'x': 1, 'w': 222, 'h': 538},{'object_id': 1058539, 'y': 283, 'x': 439, 'w': 359, 'h': 258},{'object_id': 1058543, 'y': 1, 'x': 0, 'w': 135, 'h': 535},{'object_id': 1058545, 'y': 0, 'x': 178, 'w': 476, 'h': 360},{'object_id': 5045, 'y': 344, 'x': 116, 'w': 274, 'h': 189},{'object_id': 1058542, 'y': 278, 'x': 533, 'w': 241, 'h': 176},{'object_id': 1058498, 'y': 63, 'x': 422, 'w': 77, 'h': 363},{'object_id': 3798576, 'y': 264, 'x': 367, 'w': 82, 'h': 248},{'object_id': 3798577, 'y': 254, 'x': 238, 'w': 57, 'h': 259},{'object_id': 1058548, 'y': 63, 'x': 537, 'w': 43, 'h': 430},{'object_id': 1058507, 'y': 13, 'x': 123, 'w': 78, 'h': 179},{'object_id': 1058530, 'y': 296, 'x': 367, 'w': 82, 'h': 98},{'object_id': 5049, 'y': 319, 'x': 478, 'w': 78, 'h': 95},{'object_id': 1058531, 'y': 369, 'x': 388, 'w': 48, 'h': 128},{'object_id': 1058511, 'y': 287, 'x': 241, 'w': 54, 'h': 103},{'object_id': 1058528, 'y': 384, 'x': 245, 'w': 44, 'h': 118},{'object_id': 1058547, 'y': 295, 'x': 368, 'w': 82, 'h': 102},{'object_id': 1058525, 'y': 485, 'x': 388, 'w': 48, 'h': 28},{'object_id': 1058546, 'y': 285, 'x': 370, 'w': 30, 'h': 41},{'object_id': 1058535, 'y': 319, 'x': 337, 'w': 27, 'h': 36},{'object_id': 5051, 'y': 311, 'x': 321, 'w': 27, 'h': 41},{'object_id': 5050, 'y': 370, 'x': 517, 'w': 18, 'h': 9},{'object_id': 1058518, 'y': 317, 'x': 448, 'w': 43, 'h': 23},{'object_id': 1058541, 'y': 288, 'x': 401, 'w': 9, 'h': 8}"
+1,1,3282,curb,lessen the intensity of; temper; hold in restraint; hold or keep within limits,curb.v.01,Parking meter located next to curb,"{'M': 'Medium', '4': 'End point, end state of arg1', '0': 'causer of reduction, Agent', '1': 'Logical subject, patient, thing falling', '2': 'EXT, amount fallen', '3': 'Start point'}","<example name=""typical usage"">
+<text>
+    The CFTC plans *trace* to curb dual trading on commodities
+    markets, in which traders buy and sell both for their own account
+    and for clients. 
+</text>
+        <arg n=""0"">*trace* -&gt;  The CFTC</arg>
+        <rel>curb</rel>
+        <arg n=""1"">dual trading on commodities markets , in which traders buy and sell both for their own account and for clients</arg>
+</example>",manner,ext,logical subject,causer of reduction,place,,,1058519,,,"1058539,1058542,3798576,1058515,5060,1058519","1058539,1058542,3798576,1058515,5060,1058519","1058539,1058542,3798576,1058515,5060,1058519","1058539,1058542,3798576,1058515,5060,1058519","1058539,1058542,3798576,1058515,5060,1058519","{'object_id': 1058539, 'y': 283, 'x': 439, 'w': 359, 'h': 258},{'object_id': 1058542, 'y': 278, 'x': 533, 'w': 241, 'h': 176},{'object_id': 3798576, 'y': 264, 'x': 367, 'w': 82, 'h': 248},{'object_id': 1058515, 'y': 342, 'x': 719, 'w': 80, 'h': 164},{'object_id': 5060, 'y': 345, 'x': 716, 'w': 70, 'h': 164},{'object_id': 1058519, 'y': 325, 'x': 577, 'w': 26, 'h': 143}"
+2,2,2490,switch,"change over, change around, as to a new order or sequence",switch.v.01,street light have been switched off,"{'3': 'start state', '0': 'causer of transformation', '1': 'thing changing', '2': 'end state, attribute of arg1'}","<example name=""all arguments present"">
+<text>
+    Both Shearson's Mr. Will and Stephen Reitman, European auto
+    analyst at the London brokerage firm UBS-Phillips &amp; Drew, recently
+    switched their Jaguar recommendations to hold from buy. 
+</text>
+        <arg n=""0"">Both Shearson's Mr. Will and Stephen Reitman,
+        European auto analyst at the London brokerage firm
+        UBS-Phillips &amp; Drew</arg> 
+        <arg f=""TMP"" n=""M"">recently</arg>
+        <rel>switched</rel>
+        <arg n=""1"">their Jaguar recommendations</arg>
+        <arg f=""to"" n=""2"">hold</arg>
+        <arg f=""from"" n=""3"">buy</arg>
+</example>",end state,causer of transformation,manner,thing changing,place,5086,,,,,"1023813,1023819,1023846,1023845,1023838,1023836,5085,5071,5069,5086,5089,1023823","1023813,1023819,1023846,1023845,1023838,1023836,5085,5071,5069,5086,5089,1023823","1023813,1023819,1023846,1023845,1023838,1023836,5085,5071,5069,5086,5089,1023823","1023813,1023819,1023846,1023845,1023838,1023836,5085,5071,5069,5086,5089,1023823","1023813,1023819,1023846,1023845,1023838,1023836,5085,5071,5069,5086,5089,1023823","{'object_id': 1023813, 'y': 347, 'x': 320, 'w': 478, 'h': 253},{'object_id': 1023819, 'y': 0, 'x': 569, 'w': 228, 'h': 414},{'object_id': 1023846, 'y': 0, 'x': 171, 'w': 258, 'h': 319},{'object_id': 1023845, 'y': 120, 'x': 386, 'w': 114, 'h': 412},{'object_id': 1023838, 'y': 325, 'x': 321, 'w': 142, 'h': 246},{'object_id': 1023836, 'y': 354, 'x': 240, 'w': 127, 'h': 108},{'object_id': 5085, 'y': 337, 'x': 350, 'w': 81, 'h': 61},{'object_id': 5071, 'y': 362, 'x': 361, 'w': 70, 'h': 80},{'object_id': 5069, 'y': 195, 'x': 473, 'w': 27, 'h': 12},{'object_id': 5086, 'y': 217, 'x': 292, 'w': 27, 'h': 126},{'object_id': 5089, 'y': 405, 'x': 418, 'w': 47, 'h': 63},{'object_id': 1023823, 'y': 288, 'x': 233, 'w': 14, 'h': 62}"
