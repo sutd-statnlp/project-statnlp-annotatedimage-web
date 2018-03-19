@@ -110,7 +110,7 @@
         function loadRegionSample(region) {
             var mapping = angular.fromJson(region.example_mapping.replace(/'/g, '"'));
    
-            var verb = region.roles_example.split('<rel>')[1].split('</rel>')[0]
+            var verb = region.roles_example.split('<rel>')[1].split('</rel>')[0];
            
             var sampleSub1 = region.roles_example.split('<arg n="0">')[1].split('</arg>')[0];
             var sampleSub2 = region.roles_example.split('<arg n="1">')[1].split('</arg>')[0];
@@ -121,7 +121,7 @@
             regionHtml = regionHtml.replace(sampleSub2, '<b class="col-orange">' + sampleSub2 + '</b>');
 
             var format =  sampleText.replace(sampleSub1, '<b class="col-blue text-uppercase">' + mapping[0] + '</b>');
-            format = format.replace(region.format.verb, '<b class="col-green text-uppercase">' + verb + '</b>');
+            format = format.replace(verb, '<b class="col-green text-uppercase">' + verb + '</b>');
             format = format.replace(sampleSub2, '<b class="col-orange text-uppercase">' + mapping[1] + '</b>');
             
             $('#region-format').html(format);

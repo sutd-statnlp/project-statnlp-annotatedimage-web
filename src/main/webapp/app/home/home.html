@@ -10,11 +10,11 @@
             <li class="{{item == vm.roleIndex ? 'active' : ''}}" ng-repeat="item in vm.batchRange">
                 <a href="javascript:void(0);" ng-click="vm.chooseRole(item)">
                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 m-col">
-                        <span>{{vm.region['role' + item]}}:</span>
-                        <span class="label bg-orange">{{vm.getObjectNameById(vm.region['value' + item])}}</span>
+                        <span class="pull-left">{{vm.region['role' + item]}}:</span>
+                        <span class="label bg-orange pull-right m-label">{{vm.getObjectNameById(vm.region['value' + item])}}</span>
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 m-col">
-                        <i class="material-icons pull-right">arrow_forward</i>
+                        <i class="material-icons pull-right m-label">arrow_forward</i>
                     </div>
                 </a>
             </li>
@@ -33,7 +33,7 @@
 
 <div class="container-fluid m-home-body">
     <div class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-r-0">
             <div class="card">
 
                 <div class="header">
@@ -71,7 +71,7 @@
 
     <!-- Advanced Select -->
     <div id="annotation" class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-r-0">
             <div class="card">
                 <div class="body m-region-image" data-step="5" data-intro='Click to view image in full-screen mode or hover mouse on image and scroll to zoom'>
                     <div class="list-unstyled row clearfix">
@@ -115,7 +115,7 @@
 
     </div>
     <div class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-r-0">
             <div class="card">
 
                 <div class="body m-meaning m-l-40 m-r-40">

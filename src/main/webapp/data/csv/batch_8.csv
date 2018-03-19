@@ -1,4 +1,4 @@
-,image_id,region_id,predicate,predicate_def,synset,caption,example_mapping,roles_example,role0,role1,role2,role3,role4,role5,role6,role7,value0,value1,value2,value3,value4,value5,value6,value7,suggestion0,suggestion1,suggestion2,suggestion3,suggestion4,suggestion5,suggestion6,suggestion7,coordinates
+index,image_id,region_id,predicate,predicate_def,synset,caption,example_mapping,roles_example,role0,role1,role2,role3,role4,role5,role6,role7,value0,value1,value2,value3,value4,value5,value6,value7,suggestion0,suggestion1,suggestion2,suggestion3,suggestion4,suggestion5,suggestion6,suggestion7,coordinates
 0,1,1736,raise,raise the level or amount of something,raise.v.01,man has raised his arm,"{'M': 'Medium', '4': 'End point', '0': 'Agent', '1': 'Logical subject, patient, thing rising', '2': 'EXT, amount risen', '3': 'Start point'}","<example name=""straight transitive"">
   <text>
     The securities will raise about $10 billion in cash.

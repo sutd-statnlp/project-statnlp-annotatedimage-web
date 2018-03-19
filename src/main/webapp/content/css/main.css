@@ -5,7 +5,7 @@
   background-color: #B3E5FC; }
 
 .m-sidenav {
-  width: 320px; }
+  width: 340px; }
 
 .justify-content-center {
   text-align: center;
@@ -15,8 +15,8 @@
 
 .m-content {
   margin-top: 0px !important;
-  margin-left: 320px !important;
-  margin-right: 0px !important; }
+  margin-left: 330px !important;
+  margin-right: 4px !important; }
 
 .dropdown-menu {
   height: 180px !important; }
@@ -70,3 +70,7 @@
 
 .m-meaning-footer .progress {
   height: 10px; }
+
+.m-label {
+  margin: 0px !important;
+  margin-top: 5px !important; }

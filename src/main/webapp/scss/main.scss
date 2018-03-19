@@ -8,7 +8,7 @@
 }
 
 .m-sidenav {
-    width: 320px;
+    width: 340px;
 }
 
 
@@ -21,8 +21,8 @@
 
 .m-content {
     margin-top: 0px !important;
-    margin-left: 320px !important;
-    margin-right: 0px !important;
+    margin-left: 330px !important;
+    margin-right: 4px !important;
 }
 
 .dropdown-menu {
@@ -97,4 +97,8 @@
     .progress {
         height: 10px;
     }
+}
+.m-label {
+    margin: 0px !important;
+    margin-top: 5px !important;
 }
